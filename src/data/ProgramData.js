@@ -1,8 +1,8 @@
-import configData from "./config.json";
-import { JsonParse } from "./utils/JsonParse";
-import { Format } from "./utils/Format";
+import configData from "../config.json";
+import { JsonParse } from "../utils/JsonParse";
+import { Format } from "../utils/Format";
 import { Temporal } from "@js-temporal/polyfill";
-import { LocalTime } from "./utils/LocalTime";
+import { LocalTime } from "../utils/LocalTime";
 
 //
 

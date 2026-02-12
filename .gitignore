@@ -10,9 +10,13 @@
 
 # production
 /build
+/dist
 
 # config
 /src/config.json
+
+# IDE settings
+/.idea
 
 # misc
 .DS_Store

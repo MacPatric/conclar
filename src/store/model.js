@@ -1,8 +1,8 @@
 import { action, thunk, computed } from "easy-peasy";
-import { ProgramData } from "./ProgramData";
-import { ProgramSelection } from "./ProgramSelection";
-import { LocalTime } from "./utils/LocalTime";
-import configData from "./config.json";
+import { ProgramData } from "../data/ProgramData";
+import { ProgramSelection } from "../data/ProgramSelection";
+import { LocalTime } from "../utils/LocalTime";
+import configData from "../config.json";
 
 const model = {
   isLoading: true,
