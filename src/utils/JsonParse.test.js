@@ -60,7 +60,6 @@ describe('JsonParse', () => {
     it('should handle single-line comments ending with \\r', () => {
       const data = '{"a": 1} // comment\r{"b": 2}';
       const result = JsonParse.extractJson(data);
-      // This test is expected to fail currently due to the bug in JsonParse.js
       expect(result).toEqual([{ a: 1 }, { b: 2 }]);
     });
 

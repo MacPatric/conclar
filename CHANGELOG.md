@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed bug in `JsonParse.js` where single-line comments were not correctly terminated by `\n`.
 
 ### Changed
+- Refactored project structure: moved `ProgramData.js` and `ProgramSelection.js` to `src/data/` and `model.js` to `src/store/`.
 - Refactored `LocalTime.js` to use `toLocaleString()` for robust time formatting.
 - Modernized ISO date generation in `LocalTime.js`.
 - Standardized `localStorage` handling for boolean values.
