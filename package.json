@@ -1,5 +1,5 @@
 {
-  "name": "conclar",
+  "name": "metroclar",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://guide.metropolcon.eu/",
@@ -36,7 +36,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "vitest"
     ]
   },
   "browserslist": {
