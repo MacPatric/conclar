@@ -1,0 +1,197 @@
+{
+  "app_title": "MetropolCon 2026 Programme Guide",
+  "navigation": {
+    "program": "Programme",
+    "people": "People",
+    "myschedule": "My Schedule",
+    "info": "Information",
+    "settings": "Settings"
+  },
+  "help_text": {
+    "welcome": "Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.",
+    "sharing": "You may share your personal schedule to other devices using the QR codes on the My Schedule page.",
+    "close_label": "Close",
+    "close_aria_label": "Dismiss help text"
+  },
+  "locations": {
+    "label": "Show on map"
+  },
+  "application": {
+    "loading": {
+      "message": "Loading... Please wait..."
+    }
+  },
+  "program": {
+    "limit": {
+      "label": "Maximum items displayed",
+      "all_label": "Show all"
+    },
+    "show_more": {
+      "label": "Show more items",
+      "no_more": "No more items to display"
+    }
+  },
+  "search": {
+    "search_label": "Search title, desc, or people"
+  },
+  "my_schedule": {
+    "title": "My Schedule",
+    "empty": {
+      "text": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the programme page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
+    },
+    "intro": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
+    "share": {
+      "label": "Share program selection",
+      "description": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
+      "link_label": "Shareable link",
+      "multiple_description": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
+      "multiple_link_label": "Shareable link #@number"
+    }
+  },
+  "shared": {
+    "title": "Shared Program Items",
+    "description": "The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
+    "button_label": "Add all to My Schedule"
+  },
+  "tags": {
+    "placeholder": "Select tags",
+    "separate": [
+      {
+        "prefix": "Division",
+        "placeholder": "Select division"
+      },
+      {
+        "prefix": "Type",
+        "placeholder": "Select type"
+      },
+      {
+        "prefix": "Tag",
+        "placeholder": "Select tag"
+      },
+      {
+        "prefix": "Track",
+        "placeholder": "Select track"
+      }
+    ],
+    "day_tag": {
+      "placeholder": "Select days",
+      "days": {
+        "4": "Thursday",
+        "5": "Friday",
+        "6": "Saturday",
+        "7": "Sunday",
+        "1": "Monday"
+      }
+    }
+  },
+  "hide_before": {
+    "placeholder": "Select time"
+  },
+  "filter": {
+    "reset": {
+      "label": "Reset filters"
+    }
+  },
+  "permalink": {
+    "permalink_title": "Permalink"
+  },
+  "expand": {
+    "expand_all_label": "Expand All",
+    "collapse_all_label": "Collapse All"
+  },
+  "links": {
+    "signup": "Click to sign up",
+    "meeting": "Click to view stream",
+    "recording": "Click to view recording"
+  },
+  "convention_time": {
+    "notice": "Convention time for @timezone, shown in bold."
+  },
+  "local_time": {
+    "checkbox_label": "Show local time",
+    "notice": "Local time for @timezone, shown in italics.",
+    "prev_day": " previous day",
+    "next_day": " next day",
+    "failure": "Unable to convert to local time."
+  },
+  "time_format": {
+    "checkbox_label": "Show 12 hour time"
+  },
+  "duration": {
+    "duration_label": "Duration: @mins mins"
+  },
+  "start_time": {
+    "start_time_label": "Starts: @con_time",
+    "start_time_with_local_label": "Starts: @con_time con time, @local_time local time"
+  },
+  "show_past_items": {
+    "checkbox_label": "Show past items"
+  },
+  "people": {
+    "moderators": {
+      "moderator_label": "(moderator)"
+    },
+    "thumbnails": {
+      "checkbox_label": "Show thumbnails"
+    },
+    "sort": {
+      "checkbox_label": "Sort by full name"
+    },
+    "tags": {
+      "placeholder": "Select tags"
+    },
+    "search": {
+      "search_label": "Search people"
+    },
+    "person_header": "Person: "
+  },
+  "useless_checkbox": {
+    "checkbox_label": "Useless checkbox"
+  },
+  "information": {
+    "loading_message": "Loading..."
+  },
+  "settings": {
+    "title": {
+      "label": "Settings"
+    },
+    "time_format": {
+      "label": "Time format",
+      "t12_hour_label": "12 hour",
+      "t24_hour_label": "24 hour"
+    },
+    "show_local_time": {
+      "label": "Show local time",
+      "never_label": "Never display",
+      "differs_label": "Display if differs from convention time",
+      "always_label": "Always show"
+    },
+    "show_timezone": {
+      "label": "Show timezone after times",
+      "never_label": "Never display",
+      "always_label": "Always show",
+      "if_local_label": "Show timezone if local time shown"
+    },
+    "select_timezone": {
+      "label": "Select timezone",
+      "browser_default_label": "Use browser default timezone:",
+      "select_label": "Select timezone to use"
+    },
+    "dark_mode": {
+      "label": "Dark mode (may require refresh after changing)",
+      "browser_default_label": "Use browser default - ",
+      "browser_light_label": "Light mode",
+      "browser_dark_label": "Dark mode",
+      "light_mode_label": "Always light mode",
+      "dark_mode_label": "Always dark mode"
+    }
+  },
+  "footer": {
+    "conclar_note_markdown": "Guide powered by [ConClár](https://github.com/lostcarpark/conclar)"
+  },
+  "debug_mode": {
+    "online_label": "Currently Online",
+    "offline_label": "Currently Offline",
+    "fetch_button_label": "Fetch Data Now"
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "app_title": "MetropolCon 2026 Programm-Guide",
+  "navigation": {
+    "program": "Programm",
+    "people": "Teilnehmende",
+    "myschedule": "Mein Plan",
+    "info": "Information",
+    "settings": "Einstellungen"
+  },
+  "help_text": {
+    "welcome": "Willkommen bei ConClár. Du kannst die Kontrollkästchen neben den Programmpunkten verwenden, um einen persönlichen Zeitplan zu erstellen. Du kannst diesen auf der Seite 'Mein Plan' ansehen und mit anderen Geräten teilen.",
+    "sharing": "Du kannst deinen persönlichen Zeitplan über die QR-Codes auf der Seite 'Mein Plan' mit anderen Geräten teilen.",
+    "close_label": "Schließen",
+    "close_aria_label": "Hilfetext ausblenden"
+  },
+  "locations": {
+    "label": "Auf Karte zeigen"
+  },
+  "application": {
+    "loading": {
+      "message": "Laden... Bitte warten..."
+    }
+  },
+  "program": {
+    "limit": {
+      "label": "Maximal angezeigte Elemente",
+      "all_label": "Alle anzeigen"
+    },
+    "show_more": {
+      "label": "Mehr Elemente anzeigen",
+      "no_more": "Keine weiteren Elemente zum Anzeigen"
+    }
+  },
+  "search": {
+    "search_label": "Titel, Beschreibung oder Personen suchen"
+  },
+  "my_schedule": {
+    "title": "Mein Plan",
+    "empty": {
+      "text": "Auf dieser Seite wird dein persönlicher Zeitplan für die Convention angezeigt. Um ihn zu aktivieren, klicke auf die Kontrollkästchen neben den Elementen, die dich interessieren, auf der Programmseite. Deine ausgewählten Elemente werden auf dieser Seite aufgelistet. Du kannst Elemente auch zwischen Geräten auf dieser Seite teilen, indem du den QR-Code scannst, der am Ende der Seite angezeigt wird, oder den Link kopierst."
+    },
+    "intro": "Dein persönlicher Zeitplan wird unten angezeigt. Er wird nicht automatisch mit anderen Geräten synchronisiert, aber du kannst die Links oder QR-Codes am Ende dieser Seite verwenden, um deine Auswahl mit deinen anderen Geräten zu teilen.",
+    "share": {
+      "label": "Programmauswahl teilen",
+      "description": "Kopiere diesen Link und füge ihn ein, um deine Auswahl mit anderen Geräten zu teilen. Oder richte deine Kamera auf den QR-Code unten.",
+      "link_label": "Teilbarer Link",
+      "multiple_description": "Da du eine große Anzahl von Elementen ausgewählt hast, musst du mehrere Links/QR-Codes verwenden, um sie auf deine anderen Geräte zu übertragen.",
+      "multiple_link_label": "Teilbarer Link #@number"
+    }
+  },
+  "shared": {
+    "title": "Geteilte Programmpunkte",
+    "description": "Die folgenden Programmpunkte wurden mit dir geteilt. Um sie deinem Zeitplan hinzuzufügen, klicke auf die Schaltfläche am Ende der Seite.",
+    "button_label": "Alle zu 'Mein Plan' hinzufügen"
+  },
+  "tags": {
+    "placeholder": "Tags auswählen",
+    "separate": [
+      {
+        "prefix": "Bereich",
+        "placeholder": "Bereich auswählen"
+      },
+      {
+        "prefix": "Typ",
+        "placeholder": "Typ auswählen"
+      },
+      {
+        "prefix": "Tag",
+        "placeholder": "Tag auswählen"
+      },
+      {
+        "prefix": "Track",
+        "placeholder": "Track auswählen"
+      }
+    ],
+    "day_tag": {
+      "placeholder": "Tage auswählen",
+      "days": {
+        "4": "Donnerstag",
+        "5": "Freitag",
+        "6": "Samstag",
+        "7": "Sonntag",
+        "1": "Montag"
+      }
+    }
+  },
+  "hide_before": {
+    "placeholder": "Zeit auswählen"
+  },
+  "filter": {
+    "reset": {
+      "label": "Filter zurücksetzen"
+    }
+  },
+  "permalink": {
+    "permalink_title": "Permalink"
+  },
+  "expand": {
+    "expand_all_label": "Alle ausklappen",
+    "collapse_all_label": "Alle einklappen"
+  },
+  "links": {
+    "signup": "Zum Anmelden klicken",
+    "meeting": "Zum Streamen klicken",
+    "recording": "Zum Ansehen der Aufnahme klicken"
+  },
+  "convention_time": {
+    "notice": "Convention-Zeit für @timezone, fett gedruckt."
+  },
+  "local_time": {
+    "checkbox_label": "Lokale Zeit anzeigen",
+    "notice": "Lokale Zeit für @timezone, kursiv gedruckt.",
+    "prev_day": " vorheriger Tag",
+    "next_day": " nächster Tag",
+    "failure": "Umwandlung in lokale Zeit nicht möglich."
+  },
+  "time_format": {
+    "checkbox_label": "12-Stunden-Format anzeigen"
+  },
+  "duration": {
+    "duration_label": "Dauer: @mins Min."
+  },
+  "start_time": {
+    "start_time_label": "Beginn: @con_time",
+    "start_time_with_local_label": "Beginn: @con_time Convention-Zeit, @local_time lokale Zeit"
+  },
+  "show_past_items": {
+    "checkbox_label": "Vergangene Elemente anzeigen"
+  },
+  "people": {
+    "moderators": {
+      "moderator_label": "(Moderation)"
+    },
+    "thumbnails": {
+      "checkbox_label": "Vorschaubilder anzeigen"
+    },
+    "sort": {
+      "checkbox_label": "Nach vollem Namen sortieren"
+    },
+    "tags": {
+      "placeholder": "Tags auswählen"
+    },
+    "search": {
+      "search_label": "Personen suchen"
+    },
+    "person_header": "Person: "
+  },
+  "useless_checkbox": {
+    "checkbox_label": "Nutzloses Kontrollkästchen"
+  },
+  "information": {
+    "loading_message": "Laden..."
+  },
+  "settings": {
+    "title": {
+      "label": "Einstellungen"
+    },
+    "time_format": {
+      "label": "Zeitformat",
+      "t12_hour_label": "12 Stunden",
+      "t24_hour_label": "24 Stunden"
+    },
+    "show_local_time": {
+      "label": "Lokale Zeit anzeigen",
+      "never_label": "Nie anzeigen",
+      "differs_label": "Anzeigen, wenn sie von der Convention-Zeit abweicht",
+      "always_label": "Immer anzeigen"
+    },
+    "show_timezone": {
+      "label": "Zeitzone nach Zeiten anzeigen",
+      "never_label": "Nie anzeigen",
+      "always_label": "Immer anzeigen",
+      "if_local_label": "Zeitzone anzeigen, wenn lokale Zeit angezeigt wird"
+    },
+    "select_timezone": {
+      "label": "Zeitzone auswählen",
+      "browser_default_label": "Browser-Standardzeitzone verwenden:",
+      "select_label": "Zu verwendende Zeitzone auswählen"
+    },
+    "dark_mode": {
+      "label": "Dunkelmodus (erfordert nach Änderung möglicherweise ein Neuladen)",
+      "browser_default_label": "Browser-Standard verwenden - ",
+      "browser_light_label": "Hell",
+      "browser_dark_label": "Dunkel",
+      "light_mode_label": "Immer Hell",
+      "dark_mode_label": "Immer Dunkel"
+    }
+  },
+  "footer": {
+    "conclar_note_markdown": "Guide unterstützt durch [ConClár](https://github.com/lostcarpark/conclar)"
+  },
+  "debug_mode": {
+    "online_label": "Derzeit online",
+    "offline_label": "Derzeit offline",
+    "fetch_button_label": "Daten jetzt abrufen"
+  }
+}
