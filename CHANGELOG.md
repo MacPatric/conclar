@@ -18,5 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Standardized `localStorage` handling for boolean values.
 - Cleaned up unused code and improved robustness of configuration checks in `LocalTime.js`.
 
+### Added
+- Initial unit test suite for `LocalTime.js` using Vitest.
+- Mocking infrastructure for `localStorage` and `Temporal` in tests.
+
 ## [0.1.0] - 2026-02-12
 - Initial release.
