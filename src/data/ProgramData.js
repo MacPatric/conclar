@@ -4,8 +4,6 @@ import { Format } from "../utils/Format";
 import { Temporal } from "@js-temporal/polyfill";
 import { LocalTime } from "../utils/LocalTime";
 
-//
-
 /**
  * Class for processing program and people data.
  * At present this is just a class for grouping static functions, but it may evolve.
