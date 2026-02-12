@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed critical logic error in `LocalTime.js` where `indexOf()` was incorrectly used for cache lookup.
 - Improved cache validation in `LocalTime.js` to prevent collisions.
 - Fixed timezone comparison in `LocalTime.js` using Temporal API `.id`.
+- Fixed bug in `JsonParse.js` where single-line comments were not correctly terminated by `\n`.
 
 ### Changed
 - Refactored `LocalTime.js` to use `toLocaleString()` for robust time formatting.
@@ -21,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial unit test suite for `LocalTime.js` using Vitest.
 - Mocking infrastructure for `localStorage` and `Temporal` in tests.
+- Unit test suite for `JsonParse.js` covering comments, nested structures, and multiple entities.
 
 ## [0.1.0] - 2026-02-12
 - Initial release.
