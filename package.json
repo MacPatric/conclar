@@ -17,10 +17,10 @@
     "react-select": "^5.10.2",
     "react-spring": "^10.0.3",
     "react-timezone-select": "^3.2.8",
-    "react-use-measure": "^2.1.1",
-    "remark-gfm": "^3.0.1",
-    "timezone-soft": "^1.4.1",
-    "web-vitals": "^2.1.2"
+    "react-use-measure": "^2.1.7",
+    "remark-gfm": "^4.0.1",
+    "timezone-soft": "^1.5.2",
+    "web-vitals": "^5.1.0"
   },
   "scripts": {
     "start": "vite",
