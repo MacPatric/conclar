@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial unit test suite for `LocalTime.js` using Vitest.
 - Mocking infrastructure for `localStorage` and `Temporal` in tests.
 - Unit test suite for `JsonParse.js` covering comments, nested structures, and multiple entities.
+- Unit test suite for `Format.js`.
 
 ## [0.1.0] - 2026-02-12
 - Initial release.
