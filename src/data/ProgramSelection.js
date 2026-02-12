@@ -1,4 +1,4 @@
-import configData from "./config.json";
+import configData from "../config.json";
 
 export class ProgramSelection {
   static getAllSelections() {

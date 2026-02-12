@@ -8,5 +8,11 @@ export default defineConfig({
     },
     build: {
         outDir: 'dist', // CRA uses 'build', Vite defaults to 'dist'
+    },
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        setupFiles: ['./src/setupTests.js']
     }
+
 });

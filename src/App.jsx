@@ -1,6 +1,6 @@
 import { StoreProvider, createStore } from "easy-peasy";
 
-import model from "./model";
+import model from "./store/model";
 import AppRoutes from "./components/AppRoutes";
 
 import "./App.css";
