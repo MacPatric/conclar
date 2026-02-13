@@ -29,29 +29,29 @@
     "show_more": {
       "label": "Mehr Elemente anzeigen",
       "no_more": "Keine weiteren Elemente zum Anzeigen"
-    }
-  },
-  "search": {
-    "search_label": "Titel, Beschreibung oder Personen suchen"
-  },
-  "my_schedule": {
-    "title": "Mein Plan",
-    "empty": {
-      "text": "Auf dieser Seite wird dein persönlicher Zeitplan für die Convention angezeigt. Um ihn zu aktivieren, klicke auf die Kontrollkästchen neben den Elementen, die dich interessieren, auf der Programmseite. Deine ausgewählten Elemente werden auf dieser Seite aufgelistet. Du kannst Elemente auch zwischen Geräten auf dieser Seite teilen, indem du den QR-Code scannst, der am Ende der Seite angezeigt wird, oder den Link kopierst."
     },
-    "intro": "Dein persönlicher Zeitplan wird unten angezeigt. Er wird nicht automatisch mit anderen Geräten synchronisiert, aber du kannst die Links oder QR-Codes am Ende dieser Seite verwenden, um deine Auswahl mit deinen anderen Geräten zu teilen.",
-    "share": {
-      "label": "Programmauswahl teilen",
-      "description": "Kopiere diesen Link und füge ihn ein, um deine Auswahl mit anderen Geräten zu teilen. Oder richte deine Kamera auf den QR-Code unten.",
-      "link_label": "Teilbarer Link",
-      "multiple_description": "Da du eine große Anzahl von Elementen ausgewählt hast, musst du mehrere Links/QR-Codes verwenden, um sie auf deine anderen Geräte zu übertragen.",
-      "multiple_link_label": "Teilbarer Link #@number"
+    "search": {
+      "search_label": "Titel, Beschreibung oder Personen suchen"
+    },
+    "my_schedule": {
+      "title": "Mein Plan",
+      "empty": {
+        "text": "Auf dieser Seite wird dein persönlicher Zeitplan für die Convention angezeigt. Um ihn zu aktivieren, klicke im Programm auf die Kontrollkästchen neben den Elementen, die dich interessieren. Deine ausgewählten Elemente werden auf dieser Seite aufgelistet. Du kannst deinen Plan zwischen Geräten teilen, indem du den QR-Code scannst, der am Ende der Seite angezeigt wird, oder den Link kopierst."
+      },
+      "intro": "Dein persönlicher Zeitplan wird unten angezeigt. Er wird nicht automatisch mit anderen Geräten synchronisiert, aber du kannst die Links oder QR-Codes am Ende dieser Seite verwenden, um deine Auswahl mit deinen anderen Geräten zu teilen.",
+      "share": {
+        "label": "Programmauswahl teilen",
+        "description": "Kopiere diesen Link und füge ihn ein, um deine Auswahl mit anderen Geräten zu teilen. Oder richte deine Kamera auf den QR-Code unten.",
+        "link_label": "Teilbarer Link",
+        "multiple_description": "Da du eine große Anzahl von Elementen ausgewählt hast, musst du mehrere Links/QR-Codes verwenden, um sie auf deine anderen Geräte zu übertragen.",
+        "multiple_link_label": "Teilbarer Link #@number"
+      }
+    },
+    "shared": {
+      "title": "Geteilte Programmpunkte",
+      "description": "Die folgenden Programmpunkte wurden mit dir geteilt. Um sie deinem Zeitplan hinzuzufügen, klicke auf die Schaltfläche am Ende der Seite.",
+      "button_label": "Alle zu 'Mein Plan' hinzufügen"
     }
-  },
-  "shared": {
-    "title": "Geteilte Programmpunkte",
-    "description": "Die folgenden Programmpunkte wurden mit dir geteilt. Um sie deinem Zeitplan hinzuzufügen, klicke auf die Schaltfläche am Ende der Seite.",
-    "button_label": "Alle zu 'Mein Plan' hinzufügen"
   },
   "tags": {
     "placeholder": "Tags auswählen",

@@ -29,29 +29,29 @@
     "show_more": {
       "label": "Show more items",
       "no_more": "No more items to display"
-    }
-  },
-  "search": {
-    "search_label": "Search title, desc, or people"
-  },
-  "my_schedule": {
-    "title": "My Schedule",
-    "empty": {
-      "text": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the programme page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
     },
-    "intro": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
-    "share": {
-      "label": "Share program selection",
-      "description": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
-      "link_label": "Shareable link",
-      "multiple_description": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
-      "multiple_link_label": "Shareable link #@number"
+    "search": {
+      "search_label": "Search title, desc, or people"
+    },
+    "my_schedule": {
+      "title": "My Schedule",
+      "empty": {
+        "text": "This page will show your personal convention schedule. To activate it, click the checkboxes next to items you are interested in on the programme page. Your selected items will be listed on this page. You may also share items between devices on this page by scanning the QR code that will be shown at the bottom the page, or copying the link."
+      },
+      "intro": "Your personal schedule is shown below. It is not automatically synced with other devices, but you can use the links or QR codes at the bottom of this page to share your selections to your other devices.",
+      "share": {
+        "label": "Share program selection",
+        "description": "Copy and paste this link to share your selections with other devices. Or point your camera at the QR code below.",
+        "link_label": "Shareable link",
+        "multiple_description": "Because you have selected a large number of items, you will need to use multiple links/QR codes to transfer to your other devices.",
+        "multiple_link_label": "Shareable link #@number"
+      }
+    },
+    "shared": {
+      "title": "Shared Program Items",
+      "description": "The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
+      "button_label": "Add all to My Schedule"
     }
-  },
-  "shared": {
-    "title": "Shared Program Items",
-    "description": "The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.",
-    "button_label": "Add all to My Schedule"
   },
   "tags": {
     "placeholder": "Select tags",

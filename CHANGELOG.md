@@ -28,6 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unit test suite for `Format.js`.
 - unit tests for `HelpText` and integrate i18n support
 - unit tests for `Settings` component and update timezone utility
-- 
+- unit tests for `MySchedule` component and integrate i18n translations
+
+
 ## [0.1.0] - 2026-02-12
 - Initial release.
