@@ -22,13 +22,16 @@
     }
   },
   "program": {
+    "listing": "Zeige",
+    "of": "von",
+    "items": "Programmpunkte",
     "limit": {
-      "label": "Maximal angezeigte Elemente",
-      "all_label": "Alle anzeigen"
-    },
-    "show_more": {
-      "label": "Mehr Elemente anzeigen",
-      "no_more": "Keine weiteren Elemente zum Anzeigen"
+      "label": "Maximal angezeigte Programmpunkte",
+      "all_label": "Alle anzeigen",
+      "show_more": {
+        "label": "Mehr Programmpunkte anzeigen",
+        "no_more": "Keine weiteren Programmpunkte zum Anzeigen"
+      }
     },
     "search": {
       "search_label": "Titel, Beschreibung oder Personen suchen"

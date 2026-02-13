@@ -22,13 +22,16 @@
     }
   },
   "program": {
+    "listing": "Listing",
+    "of": "of",
+    "items": "items",
     "limit": {
       "label": "Maximum items displayed",
-      "all_label": "Show all"
-    },
-    "show_more": {
-      "label": "Show more items",
-      "no_more": "No more items to display"
+      "all_label": "Show all",
+      "show_more": {
+        "label": "Show more items",
+        "no_more": "No more items to display"
+      }
     },
     "search": {
       "search_label": "Search title, desc, or people"
