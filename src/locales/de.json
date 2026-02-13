@@ -22,6 +22,7 @@
     }
   },
   "program": {
+    "no_items": "Keine Programmpunkte gefunden.",
     "listing": "Zeige",
     "of": "von",
     "items": "Programmpunkte",

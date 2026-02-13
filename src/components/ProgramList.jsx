@@ -5,8 +5,11 @@ import { LocalTime } from "../utils/LocalTime";
 import Day from "./Day";
 import configData from "../config.json";
 import { Temporal } from "@js-temporal/polyfill";
+import { useTranslation } from 'react-i18next';
 
 const ProgramList = ({ program, forceExpanded }) => {
+  const { t } = useTranslation();
+
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   useEffect(() => {
     LocalTime.storeCachedTimes();
@@ -28,7 +31,7 @@ const ProgramList = ({ program, forceExpanded }) => {
   if (program === null || program.length === 0) {
     return (
       <div className="program">
-        <div className="program-empty">No items found.</div>
+        <div className="program-empty">{t('program.no_items')}</div>
       </div>
     );
   }
@@ -66,7 +69,7 @@ const ProgramList = ({ program, forceExpanded }) => {
   );
   const conventionTime = (
     <div className="time-convention-message" aria-hidden="true">
-      {configData.CONVENTION_TIME.NOTICE.replace(
+      {t('convention_time.notice').replace(
         "@timezone",
         configData.TIMEZONE
       )}
@@ -76,7 +79,7 @@ const ProgramList = ({ program, forceExpanded }) => {
     showLocalTime === "always" ||
     (showLocalTime === "differs" && LocalTime.timezonesDiffer) ? (
       <div className="time-local-message">
-        {configData.LOCAL_TIME.NOTICE.replace(
+        {t('local_time.notice').replace(
           "@timezone",
           LocalTime.localTimeZone
         )}
