@@ -52,7 +52,7 @@ describe('ItemByIdList', () => {
         const translations = {
           'program.shared.title': 'Shared Program Items',
           'program.shared.description': 'The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.',
-          'program.shared.buttonLabel': 'Add all to My Schedule',
+          'program.shared.button_label': 'Add all to My Schedule',
         };
         return translations[key] || key;
       },

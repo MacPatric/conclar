@@ -35,7 +35,7 @@ const ItemByIdList = () => {
             });
           }}
         >
-          {t('program.shared.buttonLabel')}
+          {t('program.shared.button_label')}
         </button>
       </div>
     </div>

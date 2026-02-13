@@ -2,9 +2,11 @@ import { useStoreState } from "easy-peasy";
 import { Link } from "react-router-dom";
 import QRCode from "react-qr-code";
 import configData from "../config.json";
+import { useTranslation } from 'react-i18next';
 
 const ShareLink = () => {
-  const mySchedule = useStoreState((state) => state.getMySchedule);
+    const { t } = useTranslation();
+    const mySchedule = useStoreState((state) => state.getMySchedule);
   // Don't show share link(s) unless there are items in mySchedule.
   if (mySchedule.length === 0) return <></>;
   const links = [];
@@ -17,11 +19,11 @@ const ShareLink = () => {
         <div className="share-link">
           <Link to={link}>
             {multi
-              ? configData.PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_LINK_LABEL.replace(
+              ? t('program.my_schedule.share.multiple_link_label').replace(
                   "@number",
                   key + 1
                 )
-              : configData.PROGRAM.MY_SCHEDULE.SHARE.LINK_LABEL}
+              : t('program.my_schedule.share.link_label')}
           </Link>
         </div>
         <div className="share-qr-code">
@@ -48,7 +50,7 @@ const ShareLink = () => {
   const multipleDesc =
     key > 1 ? (
       <div className="share-body">
-        {configData.PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_DESCRIPTION}
+          {t('program.my_schedule.share.multiple_description')}
       </div>
     ) : (
       ""
@@ -57,10 +59,10 @@ const ShareLink = () => {
   return (
     <div className="share-group select-show-timezone">
       <div className="share-head">
-        {configData.PROGRAM.MY_SCHEDULE.SHARE.LABEL}
+          {t('program.my_schedule.share.label')}
       </div>
       <div className="share-body">
-        {configData.PROGRAM.MY_SCHEDULE.SHARE.DESCRIPTION}
+          {t('program.my_schedule.share.description')}
       </div>
       {multipleDesc}
       {links}
