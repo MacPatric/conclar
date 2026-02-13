@@ -25,11 +25,7 @@
     "LINEFEED_AFTER_URL": false
   },
   "NAVIGATION": {
-    "PROGRAM": "Programme",
-    "PEOPLE": "People",
-    "MYSCHEDULE": "My Schedule",
-    "INFO": "Information",
-    "SETTINGS": "Settings",
+    "INFO": true,
     "EXTRA": [{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }]
   },
   "HELP_TEXT": {
