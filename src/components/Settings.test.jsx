@@ -2,12 +2,17 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Settings from './Settings';
 import { useStoreState, useStoreActions } from 'easy-peasy';
-import configData from '../config.json';
+import { useTranslation } from 'react-i18next';
 
 // Mock easy-peasy
 vi.mock('easy-peasy', () => ({
   useStoreState: vi.fn(),
   useStoreActions: vi.fn(),
+}));
+
+// Mock react-i18next
+vi.mock('react-i18next', () => ({
+  useTranslation: vi.fn(),
 }));
 
 // Mock Temporal
@@ -43,6 +48,10 @@ describe('Settings', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+
+    useTranslation.mockReturnValue({
+      t: (key) => key,
+    });
 
     useStoreActions.mockImplementation((selector) => {
       const actions = {
@@ -88,19 +97,19 @@ describe('Settings', () => {
   it('renders all settings sections', () => {
     render(<Settings />);
 
-    expect(screen.getByText(configData.SETTINGS.TITLE.LABEL)).toBeDefined();
-    expect(screen.getByText(configData.SETTINGS.TIME_FORMAT.LABEL)).toBeDefined();
-    expect(screen.getByText(configData.SETTINGS.SHOW_LOCAL_TIME.LABEL)).toBeDefined();
-    expect(screen.getByText(configData.SETTINGS.SHOW_TIMEZONE.LABEL)).toBeDefined();
-    expect(screen.getByText(configData.SETTINGS.SELECT_TIMEZONE.LABEL)).toBeDefined();
-    expect(screen.getByText(configData.SETTINGS.DARK_MODE.LABEL)).toBeDefined();
+    expect(screen.getByText('settings.title.label')).toBeDefined();
+    expect(screen.getByText('settings.time_format.label')).toBeDefined();
+    expect(screen.getByText('settings.show_local_time.label')).toBeDefined();
+    expect(screen.getByText('settings.show_timezone.label')).toBeDefined();
+    expect(screen.getByText('settings.select_timezone.label')).toBeDefined();
+    expect(screen.getByText('settings.dark_mode.label')).toBeDefined();
   });
 
   it('handles 12/24 hour time format change', () => {
     render(<Settings />);
     
     // Initial state is 24h (show12HourTime: false)
-    const radio12h = screen.getByLabelText(configData.SETTINGS.TIME_FORMAT.T12_HOUR_LABEL);
+    const radio12h = screen.getByLabelText('settings.time_format.t12_hour_label');
     fireEvent.click(radio12h);
     expect(mockSetShow12HourTime).toHaveBeenCalledWith(true);
   });
@@ -110,7 +119,7 @@ describe('Settings', () => {
     
     // Select by value since it's unique within the radio groups we care about, 
     // or use container to scope
-    const fieldset = screen.getByText(configData.SETTINGS.SHOW_LOCAL_TIME.LABEL).closest('fieldset');
+    const fieldset = screen.getByText('settings.show_local_time.label').closest('fieldset');
     const radioAlways = fieldset.querySelector('input[value="always"]');
     fireEvent.click(radioAlways);
     expect(mockSetShowLocalTime).toHaveBeenCalledWith('always');
@@ -119,7 +128,7 @@ describe('Settings', () => {
   it('handles show timezone change', () => {
     render(<Settings />);
     
-    const fieldset = screen.getByText(configData.SETTINGS.SHOW_TIMEZONE.LABEL).closest('fieldset');
+    const fieldset = screen.getByText('settings.show_timezone.label').closest('fieldset');
     const radioAlways = fieldset.querySelector('input[value="always"]');
     fireEvent.click(radioAlways);
     expect(mockSetShowTimeZone).toHaveBeenCalledWith('always');
@@ -128,7 +137,7 @@ describe('Settings', () => {
   it('handles timezone method change', () => {
     render(<Settings />);
     
-    const radioSelect = screen.getByLabelText(configData.SETTINGS.SELECT_TIMEZONE.SELECT_LABEL);
+    const radioSelect = screen.getByLabelText('settings.select_timezone.select_label');
     fireEvent.click(radioSelect);
     expect(mockSetUseTimeZone).toHaveBeenCalledWith(true);
   });
@@ -157,12 +166,12 @@ describe('Settings', () => {
 
   it('handles dark mode change', () => {
     render(<Settings />);
-    
-    const radioDark = screen.getByLabelText(configData.SETTINGS.DARK_MODE.DARK_MODE_LABEL);
+
+    const radioDark = screen.getByLabelText('settings.dark_mode.dark_mode_label');
     fireEvent.click(radioDark);
     expect(mockSetDarkMode).toHaveBeenCalledWith('dark');
-    
-    const radioLight = screen.getByLabelText(configData.SETTINGS.DARK_MODE.LIGHT_MODE_LABEL);
+
+    const radioLight = screen.getByLabelText('settings.dark_mode.light_mode_label');
     fireEvent.click(radioLight);
     expect(mockSetDarkMode).toHaveBeenCalledWith('light');
   });
