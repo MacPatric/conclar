@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import configData from "../config.json";
+import { useTranslation } from 'react-i18next';
 
 const Participant = ({ person, thumbnails, moderator }) => {
-  function getParticipantThumbnail(person) {
+    const { t } = useTranslation();
+    function getParticipantThumbnail(person) {
     if (thumbnails) {
       if (person.img) {
         return (
@@ -45,7 +47,7 @@ const Participant = ({ person, thumbnails, moderator }) => {
         <span>
           {person.name}{" "}
           <span className="moderator">
-            {configData.PEOPLE.MODERATORS.MODERATOR_LABEL}
+            {t('people.moderators.moderator_label')}
           </span>
         </span>
       );
