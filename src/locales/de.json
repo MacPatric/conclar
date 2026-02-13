@@ -68,11 +68,13 @@
     "day_tag": {
       "placeholder": "Tage auswählen",
       "days": {
+        "3": "Mittwoch",
         "4": "Donnerstag",
         "5": "Freitag",
         "6": "Samstag",
         "7": "Sonntag",
-        "1": "Montag"
+        "1": "Montag",
+        "2": "Dienstag"
       }
     }
   },
