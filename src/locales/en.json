@@ -58,20 +58,12 @@
   },
   "tags": {
     "placeholder": "Select tags",
-    "separate": [
-      {
-        "placeholder": "Select division"
-      },
-      {
-        "placeholder": "Select type"
-      },
-      {
-        "placeholder": "Select tag"
-      },
-      {
-        "placeholder": "Select track"
-      }
-    ],
+    "separate": {
+      "placeholder_division": "Select division",
+      "placeholder_type": "Select type",
+      "placeholder_tag": "Select tag",
+      "placeholder_track": "Select track"
+    },
     "day_tag": {
       "placeholder": "Select days",
       "days": {

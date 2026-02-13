@@ -58,20 +58,12 @@
   },
   "tags": {
     "placeholder": "Tags auswählen",
-    "separate": [
-      {
-        "placeholder": "Bereich auswählen"
-      },
-      {
-        "placeholder": "Typ auswählen"
-      },
-      {
-        "placeholder": "Tag auswählen"
-      },
-      {
-        "placeholder": "Track auswählen"
-      }
-    ],
+    "separate": {
+      "placeholder_division": "Bereich auswählen",
+      "placeholder_type": "Typ auswählen",
+      "placeholder_tag": "Kategorie auswählen",
+      "placeholder_track": "Track auswählen"
+    },
     "day_tag": {
       "placeholder": "Tage auswählen",
       "days": {
