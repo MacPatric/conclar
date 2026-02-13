@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - unit tests for `Footer` component and integrate i18n translations
 - unit tests for `Navigation` component and integrate i18n translations
 - unit tests for `ItemByIdList` component and integrate i18n translations
+- unit tests for `Debug` component and integrate i18n translations
 
 ## [0.1.0] - 2026-02-12
 - Initial release.
