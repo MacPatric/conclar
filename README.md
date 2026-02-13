@@ -1,8 +1,15 @@
-# ConClár
+# ConClár (Fork with i18n Support)
 
-ConClár is an online Program Guide tool for conventions.
+This is a fork of [ConClár](https://github.com/lostcarpark/conclar), an online Program Guide tool for conventions, enhanced with internationalization (i18n) support.
+This project was forked and extended for the 2026 EuroCon aka MetropolCon 2026.
+It is hosted on GitHub Pages at https://github.com/MacPatric/conclar.
 
-It has been developed in ReactJS and is intended to work in all modern browsers (sorry, it probably won't work in Internet Explorer). It is designed to work equally well on mobile and desktop devices.
+ConClár is an online Program Guide tool for conventions developed in ReactJS. It is intended to work in all modern browsers (sorry, it probably won't work in Internet Explorer). It is designed to work equally well on mobile and desktop devices.
+
+**What's different in this fork:**
+- **Internationalization (i18n)**: Full support for multiple languages using react-i18next
+- **Language files**: Currently includes English and German translations
+- **Easy translation**: Most user-facing text can be translated via JSON files
 
 ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, it was developed as a completely new application, rather than trying to patch up the old code.
 
@@ -59,10 +66,88 @@ See the section about [React app deployment](https://facebook.github.io/create-r
 
 ## Customisation
 
-The main place customisations go is the `src/config.json` file. Settings currently available include:
+### Internationalization (i18n)
+
+This fork includes full internationalization support using react-i18next. User-facing text is now stored in language files rather than in `config.json`.
+
+#### Language Files
+
+Translation files are located in `src/locales/`:
+- `en.json` - English translations
+- `de.json` - German translations
+
+Each language file contains translations organized by feature area:
+
+```json
+{
+  "app_title": "MetropolCon 2026 Programme Guide",
+  "navigation": {
+    "program": "Programme",
+    "people": "People",
+    "myschedule": "My Schedule"
+  },
+  "program": {
+    "no_items": "No items found.",
+    "search": {
+      "search_label": "Search title, desc, or people"
+    }
+  }
+}
+```
+
+#### Adding a New Language
+
+1. Copy `src/locales/en.json` to `src/locales/[language-code].json`
+2. Translate all values (keep keys unchanged)
+3. Edit `src/i18n.js` to import and register the new language:
+
+```javascript
+import newLanguage from './locales/new-language.json';
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: { translation: enTranslations },
+    de: { translation: deTranslations },
+    'new-language': { translation: newLanguage }
+  },
+  // ...
+});
+```
+
+#### Customizing Translations
+
+To customize text for your convention, edit the appropriate language file(s). The following settings that were previously in `config.json` are now in the language files:
+
+**Previously in config.json, now in language files:**
+- `APP_TITLE` → `app_title`
+- `NAVIGATION.*` → `navigation.*`
+- `HELP_TEXT.*` → `help_text.*`
+- `LOCATIONS.LABEL` → `locations.label`
+- `APPLICATION.LOADING.MESSAGE` → `application.loading.message`
+- `PROGRAM.LIMIT.*` → `program.limit.*`
+- `PROGRAM.MY_SCHEDULE.*` → `program.my_schedule.*`
+- `TAGS.*` → `tags.*`
+- `FILTER.RESET.LABEL` → `filter.reset.label`
+- `PERMALINK.*` → `permalink.*`
+- `EXPAND.*` → `expand.*`
+- `LOCAL_TIME.*` → `local_time.*`
+- `TIME_FORMAT.*` → `time_format.*`
+- `DURATION.*` → `duration.*`
+- `START_TIME.*` → `start_time.*`
+- `SHOW_PAST_ITEMS.*` → `show_past_items.*`
+- `PEOPLE.*` (labels and text) → `people.*`
+- `SETTINGS.*` → `settings.*`
+- `INFORMATION.*` → `information.*`
+- `FOOTER.*` → `footer.*`
+- `DEBUG_MODE.*` (labels) → `debug_mode.*`
+
+All other settings remain in `config.json`.
+
+### Configuration File
+
+The main place for technical customisations is the `src/config.json` file. Settings currently available include:
 
 - `APP_ID`: A unique id to distinguish between instances of multi-year conventions.
-- `APP_TITLE`: The title to appear at the top of the webpage, and in the browser window title.
 - `PROGRAM_DATA_URL`: The address of the file containing programme data.
 - `PEOPLE_DATA_URL`: The address of the file listing people. If these are the same, both will be read from one file, but programme data must come before people data.
 - `FETCH_OPTIONS`: A JSON object containing options to pass when fetching data. See JavaScript [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/fetch) documentation for available valies. Typical examples:
@@ -76,128 +161,49 @@ The main place customisations go is the `src/config.json` file. Settings current
 - `HEADER.IMG_SRC`: Set to the image filename to display. May be a file in the public directory. Leave blank for no image.
 - `HEADER.IMG_ALT_TEXT`: Set to the alt text that should display for the image.
 - `HEADER.LINEFEED_AFTER_URL`: If true, place a line feed after the image.
-- `NAVIGATION`: Each value in this section sets the label that will appear on main navigation of the site. Useful for switching between different international spellings of "programme".
-- `NAVIGATION.PROGRAM`: Label for program/programme menu.
-- `NAVIGATION.PEOPLE`: Label for people menu.
-- `NAVIGATION.MYSCHEDULE`: Label for user's personal schedule.
-- `NAVIGATION.INFO`: Label for the Information menu link._
-- `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether.
-- `HELP_TEXT.WELCOME`: Text to display to new visitors who haven't selected any programme items.
-- `HELP_TEXT.SHARING`: Text to display when user has selected items, informing them of sharing options.
-- `HELP_TEXT.CLOSE_LABEL`: Label for button to dismiss help text.
-- `HELP_TEXT.CLOSE_ARIA_LABEL`: Label to describe dismiss button.
+- `NAVIGATION.EXTRA`: An array of extra menu links. Each entry should take the form: `{ "LABEL": "Octocon Home", "URL": "https://octocon.com" }`. To have no extra links, set to `"EXTRA": []` or delete `EXTRA` entry altogether. Note: Navigation labels are now in language files (see i18n section above).
 - `LOCATIONS.SEARCHABLE`: Whether the location list can be searched by typing. (Searching can be inconvenient on touch screens.)
-- `LOCATIONS.LABEL`: Label to show on map links.
 - `LOCATIONS.MAPPING`: Array of locations, with links to show on map. Each room should be specified as: `{ "KEY": "Room name", "MAP_URL": "link to map" }`.
-- `APPLICATION.LOADING.MESSAGE`: Message to display while loading.
 - `PROGRAM.LIMIT.SHOW`: If true, "limit number of items" drop-down will be displayed.
-- `PROGRAM.LIMIT.LABEL`: Label for limit drop-down.
 - `PROGRAM.LIMIT.OPTIONS`: Options for limit drop-down - should be an array of integers.
-- `PROGRAM.LIMIT.ALL_LABEL`: Label to show for "All" entry.
 - `PROGRAM.LIMIT.DEFAULT`: Default for limit drop-down.
-- `PROGRAM.LIMIT.SHOW_MORE.LABEL`: Label for the "Show more" button.
-- `PROGRAM.LIMIT.SHOW_MORE.NO_MORE`: Message to display when no more items available.
 - `PROGRAM.LIMIT.SHOW_MORE.NUM_EXTRA`: Number of items to add when "Show more" pressed.
-- `PROGRAM.MY_SCHEDULE.TITLE`: Title of My Schedule page.
-- `PROGRAM.MY_SCHEDULE.EMPTY.TEXT`: Text to display on My Schedule when no programme items selected.
-- `PROGRAM.MY_SCHEDULE.INTRO`: Introduction text for My Schedule page.
-- `PROGRAM.MY_SCHEDULE.SEARCH.SEARCH_LABEL`: Label for search box.
-- `PROGRAM.MY_SCHEDULE.SHARE.LABEL`: Heading for shared link section on MySchedule.
-- `PROGRAM.MY_SCHEDULE.SHARE.DESCRIPTION`: Descriptive message for link sharing section.
-- `PROGRAM.MY_SCHEDULE.SHARE.LINK_LABEL`: Label for link when single sharing link on page.
 - `PROGRAM.MY_SCHEDULE.SHARE.MAX_LENGTH`: Maximum number of characters in each link.
-- `PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_DESCRIPTION`: Description to display when multiple links displayed.
-- `PROGRAM.MY_SCHEDULE.SHARE.MULTIPLE_LINK_LABEL`: Label for link when multiple links shown. @number replaced by number of link.
-- `PROGRAM.SHARED.TITLE`: Title of Shared Programme Items page.
-- `PROGRAM.SHARED.DESCRIPTION`: Descriptive text for page showing shared links.
-- `PROGRAM.SHARED.BUTTON_LABEL`: Text for label of "Add all to My Schedule" button.
-- `TAGS.PLACEHOLDER`: The placeholder when selecting tags (unless separated).
 - `TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
-- `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
+- `TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`. Note: PLACEHOLDER is now in language files.
 - `TAGS.FORMAT_AS_TAG`: If set to true, turns Grenadine item format into a KonOpas-style "type" tag.
 - `TAGS.DAY_TAG.GENERATE`: If set to true, will generate tags for each day of the convention.
 - `TAGS.DAY_TAG.DAYS`: Object with key values pairs for day names. Keys are day numbers from 1 (Monday) to 7 (Sunday).
-- `TAGS.DAY_TAG.PLACEHOLDER`: The placeholder for the "day" tags drop down.
 - `TAGS.DAY_TAG.SEARCHABLE`: Whether day tag list can be searched by typing.
 - `TAGS.DAY_TAG.HIDE`: If true, hide day tags drop-down. Day tags still shown on items if GENERATE true.
 - `TAGS.DONTLIST`: An array of tags not to list in the drop-downs and programme item tag lists.
 - `HIDE_BEFORE.HIDE`: If true hide "hide before" dropdown. If false, show dropdown containing times to hide items before.
-- `HIDE_BEFORE.PLACEHOLDER`: Placeholder text for hide before drop-down.
 - `HIDE_BEFORE.TIMES`: Array of times to list in hide before drop-down. Each entry should be specified as follows: { "TIME": "time in hh:mm:ss format", "LABEL_24H": "24 hour label", "LABEL_12H": "12 hour label" }. Time should be in convention timezone.
-- `FILTER.RESET.LABEL`: The label for the "Reset filters" button.
 - `PERMALINK.SHOW_PERMALINK`: If true, display a "permalink" icon when each program item is expanded.
-- `PERMALINK.PERMALINK_TITLE`: "Title" text displayed when mouse is hovered over permalink icon.
-- `EXPAND.EXPAND_ALL_LABEL`: Label text for Expand All button.
-- `EXPAND.COLLAPSE_ALL_LABEL`: Label for Collapse All button.
 - `EXPAND.SPRING_CONFIG`: Config to apply to the configuration of the 'spring' when expanding items. This may be a simply duration, such as `{ "duration": 100 }` to expand in 100ms, or can configure more dynamic spring effects, such as `{ mass: 1, tension: 1000, friction: 30 }`. Full list of options in [react-spring documentation](https://react-spring.io/common/configs).
 - `ITEM_DESCRIPTION.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing item descriptions. For the available options, see [the DOMPurify documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify). Format options as JSON, _e.g._, `{"FORBID_ATTR": ["style"]}`.
 - `LINKS`: An array of link types expected in the program data.  Individual entries should take the form `{"NAME": "signup", "TEXT": "Click to sign up", "TAG": ""}`.  `NAME` should be the name of the link as it appears in the links object in the program data.  `TEXT` is the text that should appear on this link in ConClár.  `TAG` is an optional tag to add to every program item which includes a matching link.  If using prefixed tags, include the prefix, *e.g.*, `"type:Workshop"`.
-- `LOCAL_TIME.CHECKBOX_LABEL`: Label for the "Show Local Time" checkbox.
-- `LOCAL_TIME.NOTICE`: Label for notie telling users how local time displayed.
-- `LOCAL_TIME.PREV_DAY`: Label appended to local time if local time is before start of advertised day.
-- `LOCAL_TIME.NEXT_DAY`: Label appended to local time if local time is after end of advertised day.
-- `LOCAL_TIME.FAILURE`: Local time depends on string conversions, and could fail in some circumstances. Display this message if unable to convert.
 - `TIME_FORMAT.DEFAULT_12HR`: Set to true if you want time displayed in 12 hour format by default.
 - `TIME_FORMAT.SHOW_CHECKBOX`: If set to false, users will not be given option to change between 12 and 24 hour time.
-- `TIME_FORMAT.CHECKBOX_LABEL`: Label for the 12 hour time checkbox label.
-- `TIME_FORMAT.AM`: Label for AM times.
-- `TIME_FORMAT.PM`: Label for PM times.
 - `DURATION.SHOW_DURATION`: If true, `mins` from program data will be displayed.
-- `DURATION.DURATION_LABEL`: Format for duration. `@mins` will be replaced by number of minutes. Note: do not translate `@mins`.
-- `START_TIME.START_TIME_LABEL`: Format for start time with just con time, when read by screen readers. `@con_time` will be replaced by the start time. Note: do not translate `@con_time`.
-- `START_TIME.START_TIME_WITH_LOCAL_LABEL`: Format for start time with both con and local time, when read by screen readers. `@con_time` and `@local_time` will be replaced by the start time. Note: do not translate `@con_time` or `@local_time`.
 - `SHOW_PAST_ITEMS.SHOW_CHECKBOX`: Set to true to show the option during the convention; otherwise past programme items are shown by default.
-- `SHOW_PAST_ITEMS.CHECKBOX_LABEL`: Label for the show past items checkbox.
 - `SHOW_PAST_ITEMS.ADJUST_MINUTES`: Some wiggle room (in minutes) in order not to hide past items immediately as they start.
 - `PEOPLE.THUMBNAILS.SHOW_THUMBNAILS`: Set to false to not show member thumbnails (useful to remove spurious controls if pictures not in file).
 - `PEOPLE.THUMBNAILS.SHOW_CHECKBOX`: Set to false to hide "Show thumbnails" checkbox.
-- `PEOPLE.THUMBNAILS.CHECKBOX_LABEL`: Label for "Show thumbnails" checkbox.
 - `PEOPLE.THUMBNAILS.DEFAULT_IMAGE`: Set to default thumbnail for participants with no photo. Can be filename of image in public directory, or external URL. Leave blank for no default thumbnail.
 - `PEOPLE.SORT.SHOW_CHECKBOX`: Set to false to hide "Sort by full name" checkbox. Useful if your data only contains "name for publications".
-- `PEOPLE.SORT.CHECKBOX_LABEL`: Label for "Sort by full name" checkbox.
-- `PEOPLE.TAGS.PLACEHOLDER`: The placeholder when selecting person tags (unless separated).
 - `PEOPLE.TAGS.SEARCHABLE`: Whether the tag list can be searched by typing (unless separated).
 - `PEOPLE.TAGS.HIDE`: If true, hide the tags drop-down. Tags still displayed on items.
-- `PEOPLE.TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`.
+- `PEOPLE.TAGS.SEPARATE`: An array of tag prefixes to separate into individual drop-downs, and if drop-down is searchable or hidden. Tags should be specified as follows: `{ "PREFIX": "type", "PLACEHOLDER": "Select type", "SEARCHABLE": true|false, "HIDE": true|false }`. Note: PLACEHOLDER is now in language files.
 - `PEOPLE.SEARCH.SHOW_SEARCH`: Set to false to hide "people" search box.
-- `PEOPLE.SEARCH.SEARCH_LABEL`: Label for "people2 search box.
 - `PEOPLE.BIO.PURIFY_OPTIONS`: Pass additional options to DOMPurify when processing participant bios. For more details, see `ITEM_DESCRIPTION.PURIFY_OPTIONS` above.
-- `USELESS_CHECKBOX.CHECKBOX_LABEL`: Label for any useless checkboxes.
-- `SETTINGS.TITLE.LABEL`: Label for settings page.
-- `SETTINGS.TIME_FORMAT.LABEL`: Label for time format group.
-- `SETTINGS.TIME_FORMAT.T12_HOUR_LABEL`: Label for 12 hour option.
-- `SETTINGS.TIME_FORMAT.T24_HOUR_LABEL`: Label for 24 hour option.
-- `SETTINGS.SHOW_LOCAL_TIME.LABEL`: Label for Show Local Time option group.
-- `SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL`: Label for "Never show" option.
-- `SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL`: Label for "Display if different from Convention timezone".
-- `SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL`: Label for "Always display" option.
-- `SETTINGS.SHOW_TIMEZONE.LABEL`: Label for Show timezone after times option group.
-- `SETTINGS.SHOW_TIMEZONE.NEVER_LABEL`: Label for "Never show" option.
-- `SETTINGS.SHOW_TIMEZONE.IF_LOCAL_LABEL`: Label for "Show timezone if local time shown".
-- `SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL`: Label for "Always show" option.
-- `SETTINGS.SELECT_TIMEZONE.LABEL`: Label for select timezone group,
-- `SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL`: Label to use browser default timezone (will have name of timezone appended).
-- `SETTINGS.SELECT_TIMEZONE.SELECT_LABEL`: Label to select explicit timezone.
-- `SETTINGS.DARK_MODE.LABEL`: Label for dark mode settings group.
-- `SETTINGS.DARK_MODE.BROWSER_DEFAULT_LABEL`: Label for default browser dark mode preference.
-- `SETTINGS.DARK_MODE.BROWSER_LIGHT_LABEL`: Label to indicate browser is currently in light mode.
-- `SETTINGS.DARK_MODE.BROWSER_DARK_LABEL`: Label to indicate browser is currently in dark mode.
-- `SETTINGS.DARK_MODE.LIGHT_MODE_LABEL`: Label for forcing light mode.
-- `SETTINGS.DARK_MODE.DARK_MODE_LABEL`: Label for forcing dark mode.
 - `INFORMATION.MARKDOWN_URL`: The address of the markdown file containing additional information about the convention.
-- `INFORMATION.LOADING_MESSAGE`: Text to show while Markdown file is loading (usually never seen).
-- `FOOTER.SITE_NOTE_MARKDOWN`: General note displayed in the footer of the page. May use Markdown for encoding of links, emphesis, etc.
-- `FOOTER.COPYRIGHT_MARKDOWN`: Copyright notice if required. May include Markdown.
-- `FOOTER.CONCLAR_NOTE_MARKDOWN`: Note crediting ConClár. You are free to remove or modify this, but we politely request retaining to help promote this free tool.
 - `TIMER.FETCH_INTERVAL_MINS`: Number of minutes between refreshes of program data.
 - `TIMER.TIMER_TICK_SECS`: Number of seconds between checks of timer.
 - `DEBUG_MODE.ENABLE`: If true, display banner showing online status, and allowing manual data fetch.
-- `DEBUG_MODE.ONLINE_LABEL`: Label to display in debug mode when online.
-- `DEBUG_MODE.OFFLINE_LABEL`: Label to display in debug mode when offline.
-- `DEBUG_MODE.FETCH_BUTTON_LABEL`: Label to display in debug mode on Fetch button.
 
-More settings will be added to this file in future versions.
+**Note:** Many text labels and messages that were previously in `config.json` have been moved to language files (`src/locales/en.json`, `src/locales/de.json`, etc.). See the Internationalization section above for details on customizing user-facing text.
 
 To customise the site heading, edit the `src/components/Header.js` file.
 
