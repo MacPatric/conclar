@@ -60,19 +60,15 @@
     "placeholder": "Select tags",
     "separate": [
       {
-        "prefix": "Division",
         "placeholder": "Select division"
       },
       {
-        "prefix": "Type",
         "placeholder": "Select type"
       },
       {
-        "prefix": "Tag",
         "placeholder": "Select tag"
       },
       {
-        "prefix": "Track",
         "placeholder": "Select track"
       }
     ],

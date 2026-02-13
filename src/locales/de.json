@@ -60,19 +60,15 @@
     "placeholder": "Tags auswählen",
     "separate": [
       {
-        "prefix": "Bereich",
         "placeholder": "Bereich auswählen"
       },
       {
-        "prefix": "Typ",
         "placeholder": "Typ auswählen"
       },
       {
-        "prefix": "Tag",
         "placeholder": "Tag auswählen"
       },
       {
-        "prefix": "Track",
         "placeholder": "Track auswählen"
       }
     ],
