@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Mocking infrastructure for `localStorage` and `Temporal` in tests.
 - Unit test suite for `JsonParse.js` covering comments, nested structures, and multiple entities.
 - Unit test suite for `Format.js`.
+- unit tests for `HelpText` and integrate i18n support
 
 ## [0.1.0] - 2026-02-12
 - Initial release.

@@ -68,7 +68,7 @@ const People = () => {
   const thumbnailCheckboxLabel =
     configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS ===
     configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX
-      ? t('people.search.search_label')
+      ? t('people.thumbnails.checkbox_label')
       : t('useless_checkbox.checkbox_label');
   const thumbnailsCheckbox = configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX ? (
     <Switch
