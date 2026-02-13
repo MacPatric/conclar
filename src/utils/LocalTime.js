@@ -106,7 +106,7 @@ export class LocalTime {
       this.selectedTimeZoneClass
     );
     if (storedSelectedTimeZone === null || storedSelectedTimeZone === "") {
-      return Temporal.Now.timeZone;
+      return Intl.DateTimeFormat().resolvedOptions().timeZone;
     }
     return storedSelectedTimeZone;
   }
