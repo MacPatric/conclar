@@ -186,6 +186,8 @@
     }
   },
   "footer": {
+    "site_note_markdown": "",
+    "copyright_markdown": "",
     "conclar_note_markdown": "Guide unterstützt durch [ConClár](https://github.com/lostcarpark/conclar)"
   },
   "debug_mode": {

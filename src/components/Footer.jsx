@@ -1,18 +1,21 @@
 import ReactMarkdown from "react-markdown";
 import configData from "../config.json";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+
+    const { t } = useTranslation();
   return (
     <footer className="footer">
       <div className="footer-site">
-        <ReactMarkdown children={configData.FOOTER.SITE_NOTE_MARKDOWN} />
+        <ReactMarkdown children={t('footer.site_note_markdown')} />
       </div>
       <div className="footer-bottom">
         <div className="footer-copyright">
-          <ReactMarkdown children={configData.FOOTER.COPYRIGHT_MARKDOWN} />
+          <ReactMarkdown children={t('footer.copyright_markdown')} />
         </div>
         <div className="footer-conclar">
-          <ReactMarkdown children={configData.FOOTER.CONCLAR_NOTE_MARKDOWN} />
+          <ReactMarkdown children={t('footer.conclar_note_markdown')} />
         </div>
       </div>
     </footer>
