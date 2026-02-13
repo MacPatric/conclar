@@ -22,6 +22,7 @@
     }
   },
   "program": {
+    "select_locations": "Ort auswählen",
     "no_items": "Keine Programmpunkte gefunden.",
     "listing": "Zeige",
     "of": "von",

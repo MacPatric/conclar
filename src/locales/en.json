@@ -22,6 +22,7 @@
     }
   },
   "program": {
+    "select_locations": "Select locations",
     "no_items": "No items found.",
     "listing": "Listing",
     "of": "of",
