@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0]
+
 ### Fixed
 - Fixed critical logic error in `LocalTime.js` where `indexOf()` was incorrectly used for cache lookup.
 - Improved cache validation in `LocalTime.js` to prevent collisions.
