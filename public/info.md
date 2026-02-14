@@ -1,48 +1,23 @@
-# About ConClár
+# About ConClár for MetropolCon 2026 (Fork with i18n Support)
 
-ConClár is a browser based convention programme guide.
+ConClár is an online program guide tool for conventions developed in React.
+It is intended to work in all modern browsers. It is designed to work equally well on mobile and desktop devices.
 
-## About the information page.
+**ConClár is Copyright James Shields, 2022, and made available as an open source project under the MIT licence.**
 
-This is a sample information page. You should customise with an information page specific to your convention.
+ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, 
+ConClár was developed as a completely 
+new application, rather than trying to patch up the old code.
+ConClár can be hosted on most webservers. 
+The programme data is stored as JSON, and is compatible with KonOpas files. 
 
-The information page is composed in [Markdown](https://www.markdownguide.org/basic-syntax/). This is a common standard for formatting text that is easy to follow and safer than HTML. There is a handy [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+The version is a fork of [ConClár](https://github.com/lostcarpark/conclar), enhanced with internationalization (i18n) support
+and implemented for **MetropolCon 2026, the 2026 EuroCon**.
+It is hosted on GitHub at https://github.com/MacPatric/conclar.
 
-You may edit the provided file, `info.md`, or change the INFORMATION.MARKDOWN_URL setting in `config.json`.
-
-## Basic formatting
-
-Supported formatting includes *emphasis* and **strong emphasis** as well as ***really strong emphasis***. ~~Strike through~~ is also possible.
-
-## Bulleted Lists
-
-### Benefits of Markdown
-
-* Easy to maintain
-* Easily readable
-* Fewer risks of dangerous scripts
-
-## Ordered Lists
-
-1. List
-1. of
-1. things.
-    1. Sublist
-    1. things.
-1. More things.
-
-## Tables
-
-Tables are supported:
-
-|Contact area    |Contact no|
-|----------------|----------|
-|Membership      | 555 1234 |
-|Access          | 555 5454 |
-|Dealers         | 555 6789 |
-|Code of Conduct | 555 5555 |
-
-## Task List
-
-* [ ] to do
-* [x] done
+**What's different in this fork:**
+- **React 19**: Upgraded to React 19
+- **Internationalization (i18n)**: Full support for multiple languages using react-i18next
+- **Language files**: Currently includes English and German translations
+- **Easy translation**: Most user-facing text can be translated via JSON files
+- **Unit tests**: Includes many unit tests for key functionalities

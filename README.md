@@ -4,16 +4,16 @@ This is a fork of [ConClár](https://github.com/lostcarpark/conclar), an online 
 This project was forked and extended for the 2026 EuroCon aka MetropolCon 2026.
 It is hosted on GitHub Pages at https://github.com/MacPatric/conclar.
 
-ConClár is an online Program Guide tool for conventions developed in ReactJS. It is intended to work in all modern browsers (sorry, it probably won't work in Internet Explorer). It is designed to work equally well on mobile and desktop devices.
+ConClár is an online Program Guide tool for conventions developed in ReactJS. It is intended to work in all modern browsers (sorry, it probably won't work in Internet Explorer). 
+It is designed to work equally well on mobile and desktop devices.
+
+ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, it was developed as a completely new application, rather than trying to patch up the old code.
+ConClár can be hosted on most webservers, and has been tested on Apache and Nginx. Some changes are required if your guide is not in the root directory of the website (see below). The programme data is read from JSON files, and is compatible with KonOpas files. There are several programme planning tools that should be compatible, though so far it has only been tested with Zambia.
 
 **What's different in this fork:**
 - **Internationalization (i18n)**: Full support for multiple languages using react-i18next
 - **Language files**: Currently includes English and German translations
 - **Easy translation**: Most user-facing text can be translated via JSON files
-
-ConClár is inspired by Eemeli Aro's [KonOpas](https://github.com/eemeli/konopas). As this uses a number of unsupported libraries, it was developed as a completely new application, rather than trying to patch up the old code.
-
-ConClár can be hosted on most webservers, and has been tested on Apache and Nginx. Some changes are required if your guide is not in the root directory of the website (see below). The programme data is read from JSON files, and is compatible with KonOpas files. There are several programme planning tools that should be compatible, though so far it has only been tested with Zambia.
 
 ## Getting Started
 
