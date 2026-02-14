@@ -32,7 +32,7 @@
       "all_label": "Alle anzeigen",
       "show_more": {
         "label": "Mehr Programmpunkte anzeigen",
-        "no_more": "Keine weiteren Programmpunkte zum Anzeigen"
+        "no_more": "Keine weiteren Programmpunkte vorhanden."
       }
     },
     "search": {

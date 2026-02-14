@@ -1,5 +1,6 @@
 import { Temporal, Intl } from "@js-temporal/polyfill";
 import configData from "../config.json";
+import { useTranslation } from 'react-i18next';
 
 // Class containing functions for formatting values for ConClár.
 export class LocalTime {
@@ -307,6 +308,8 @@ export class LocalTime {
    */
   static formatTimeInLocalTimeZone(timeSlot, dateAndTime, ampm, showTimeZone) {
     const dateAndTimeStr = dateAndTime.toString();
+    const { t } = useTranslation();
+
     // Check if entry cached for timeslot.
     let cacheValue = this.localTimeCache[timeSlot];
 
@@ -332,16 +335,27 @@ export class LocalTime {
     // Compare the dates without time to see if we're showing time on next or previous day, and if so attach label.
     switch (Temporal.PlainDate.compare(localDate, conDate)) {
       case -1:
-        cacheValue[cacheKey] = formattedTime + configData.LOCAL_TIME.PREV_DAY;
+        cacheValue[cacheKey] = formattedTime + t("local_time.prev_day");
         break;
       case 1:
-        cacheValue[cacheKey] = formattedTime + configData.LOCAL_TIME.NEXT_DAY;
+        cacheValue[cacheKey] = formattedTime + t("local_time.next_day");
+        break;
         break;
       default:
         cacheValue[cacheKey] = formattedTime;
     }
     this.localTimeCache[timeSlot] = cacheValue;
     return cacheValue[cacheKey];
+  }
+
+  /**
+   * Get the day number (1-7) in convention time zone.
+   *
+   * @param {Temporal.ZonedDateTime} dateAndTime
+   * @returns {string}
+   */
+  static getDayNumberInConventionTimeZone(dateAndTime) {
+    return dateAndTime.withTimeZone(this.conventionTimeZone).dayOfWeek.toString();
   }
 
   /**
@@ -352,7 +366,7 @@ export class LocalTime {
    */
   static formatDayNameInConventionTimeZone(dateAndTime) {
     return configData.TAGS.DAY_TAG.DAYS[
-      dateAndTime.withTimeZone(this.conventionTimeZone).dayOfWeek.toString()
+      this.getDayNumberInConventionTimeZone(dateAndTime)
     ];
   }
 
