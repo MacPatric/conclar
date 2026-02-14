@@ -138,7 +138,6 @@
       "SHOW_CHECKBOX": true
     },
     "TAGS": {
-      "PLACEHOLDER": "Select tags",
       "SEARCHABLE": false,
       "HIDE": false,
       "SEPARATE": [
