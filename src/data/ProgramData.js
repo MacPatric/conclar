@@ -10,6 +10,10 @@ import { LocalTime } from "../utils/LocalTime";
  */
 
 export class ProgramData {
+  /**
+   * Regular expression for parsing date and time strings.
+   * Matches ISO 8601 format with optional milliseconds and timezone offset.
+   */
   static regex =
     /(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(\.\d{3})?(Z)?([+-]\d{2}:\d{2})?/;
 
@@ -318,13 +322,14 @@ export class ProgramData {
         const dayValue = LocalTime.formatISODateInConventionTimeZone(
           item.startDateAndTime
         );
+        const dayNumber = LocalTime.getDayNumberInConventionTimeZone(
+          item.startDateAndTime
+        );
         const dayTag = tags.days.includes(dayValue)
           ? tags.days[dayValue]
           : addTag(tags.days, {
               value: dayValue,
-              label: LocalTime.formatDayNameInConventionTimeZone(
-                item.startDateAndTime
-              ),
+              label: dayNumber, // Store day number (1-7) instead of translated name
               category: "days",
             });
         if (!tags.all.hasOwnProperty(dayValue)) {

@@ -4,8 +4,10 @@ import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import ShareLink from "./ShareLink";
 import { LocalTime } from "../utils/LocalTime";
+import { useTranslation } from 'react-i18next';
 
 const MySchedule = () => {
+  const { t } = useTranslation();
   const mySchedule = useStoreState((state) => state.getMySchedule);
   const program = useStoreState((state) => state.program);
   const showPastItems = useStoreState((state) => state.showPastItems);
@@ -20,7 +22,7 @@ const MySchedule = () => {
 
   const pageHeading = (
     <div className="page-heading">
-      <h2>{configData.PROGRAM.MY_SCHEDULE.TITLE}</h2>
+      <h2>{t('program.my_schedule.title')}</h2>
     </div>
   );
 
@@ -28,7 +30,7 @@ const MySchedule = () => {
     return (
       <div className="my-schedule">
         {pageHeading}
-        <div>{configData.PROGRAM.MY_SCHEDULE.EMPTY.TEXT}</div>
+        <div>{t('program.my_schedule.empty.text')}</div>
       </div>
     );
   }
@@ -42,16 +44,16 @@ const MySchedule = () => {
     <div className="my-schedule">
       {pageHeading}
       <div className="introduction">
-        {configData.PROGRAM.MY_SCHEDULE.INTRO}
+        {t('program.my_schedule.intro')}
       </div>
       <div className="result-filters">
         <div className="stack">
           <div className="filter-expand">
             <button disabled={allSelectedExpanded} onClick={expandSelected}>
-              {configData.EXPAND.EXPAND_ALL_LABEL}
+              {t('expand.expand_all_label')}
             </button>
             <button disabled={noneExpanded} onClick={collapseSelected}>
-              {configData.EXPAND.COLLAPSE_ALL_LABEL}
+              {t('expand.collapse_all_label')}
             </button>
           </div>
         </div>

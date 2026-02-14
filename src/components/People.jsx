@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { useTranslation } from 'react-i18next';
 import TagSelectors from "./TagSelectors";
 import ResetButton from "./ResetButton";
 import Participant from "./Participant";
@@ -7,6 +8,7 @@ import Switch from "./Switch";
 import configData from "../config.json";
 
 const People = () => {
+  const { t } = useTranslation();
   const people = useStoreState((state) => state.people);
   const personTags = useStoreState((state) => state.personTags);
   const showThumbnails = useStoreState((state) => state.showThumbnails);
@@ -66,8 +68,8 @@ const People = () => {
   const thumbnailCheckboxLabel =
     configData.PEOPLE.THUMBNAILS.SHOW_THUMBNAILS ===
     configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX
-      ? configData.PEOPLE.THUMBNAILS.CHECKBOX_LABEL
-      : configData.USELESS_CHECKBOX.CHECKBOX_LABEL;
+      ? t('people.thumbnails.checkbox_label')
+      : t('useless_checkbox.checkbox_label');
   const thumbnailsCheckbox = configData.PEOPLE.THUMBNAILS.SHOW_CHECKBOX ? (
     <Switch
       id="thumbnails"
@@ -81,7 +83,7 @@ const People = () => {
   const sortCheckbox = configData.PEOPLE.SORT.SHOW_CHECKBOX ? (
     <Switch
       id="sort_people"
-      label={configData.PEOPLE.SORT.CHECKBOX_LABEL}
+      label={t('people.sort.checkbox_label')}
       checked={sortByFullName}
       onChange={setSortByFullName} />
   ) : (
@@ -90,13 +92,13 @@ const People = () => {
 
   const searchInput = configData.PEOPLE.SEARCH.SHOW_SEARCH ? (
     <div className="people-search">
-      <label htmlFor="people-search">Search people</label>
+      <label htmlFor="people-search">{t('people.search.search_label')}</label>
       <input
         id="people-search"
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder={configData.PEOPLE.SEARCH.SEARCH_LABEL}
+        placeholder={t('people.search.search_label')}
       />
     </div>
   ) : (

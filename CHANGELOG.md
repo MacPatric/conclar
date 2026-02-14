@@ -21,10 +21,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cleaned up unused code and improved robustness of configuration checks in `LocalTime.js`.
 
 ### Added
+- i18n support. Two languages available: English and German.
+- language selector and persist language preference
 - Initial unit test suite for `LocalTime.js` using Vitest.
 - Mocking infrastructure for `localStorage` and `Temporal` in tests.
 - Unit test suite for `JsonParse.js` covering comments, nested structures, and multiple entities.
 - Unit test suite for `Format.js`.
+- unit tests for `HelpText` and integrate i18n support
+- unit tests for `Settings` component and update timezone utility
+- unit tests for `MySchedule` component and integrate i18n translations
+- unit tests for `FilterableProgram` component and integrate i18n translations
+- unit tests for `ProgramItem` component and integrate i18n translations
+- unit tests for `Footer` component and integrate i18n translations
+- unit tests for `Navigation` component and integrate i18n translations
+- unit tests for `ItemByIdList` component and integrate i18n translations
+- unit tests for `Debug` component and integrate i18n translations
+- unit tests for `ProgramData` and `TagSelect` components, integrate i18n translations
+- unit tests for `ShareLink` component and integrate i18n translations
+- unit tests for `Participant` component and integrate i18n translations
+- unit tests for `Person` and `ProgramList` components, integrate i18n translations
+- unit tests for `TagSelectors` and `LocalTime` with i18n integration
 
 ## [0.1.0] - 2026-02-12
 - Initial release.

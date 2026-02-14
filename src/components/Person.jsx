@@ -8,8 +8,10 @@ import PersonLinks from "./PersonLinks";
 import ProgramList from "./ProgramList";
 import Tag from "./Tag";
 import configData from "../config.json";
+import { useTranslation } from 'react-i18next';
 
 const Person = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const program = useStoreState((state) => state.program);
   const people = useStoreState((state) => state.people);
@@ -51,7 +53,7 @@ const Person = () => {
         <button className="person-back-button" onClick={() => navigate(-1)}>
           <MdOutlineArrowBackIos />
         </button>{" "}
-        <span className="person-title">{configData.PEOPLE.PERSON_HEADER}</span>
+        <span className="person-title">{t('people.person_header')}</span>
         {person.name}
       </h2>
       {getPersonTags(person)}
