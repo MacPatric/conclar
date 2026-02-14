@@ -36,7 +36,7 @@ new application, rather than trying to patch up the old code.
 ConClár can be hosted on most webservers.
 The programme data is stored as JSON, and is compatible with KonOpas files.
 
-The version is a fork of [ConClár](https://github.com/lostcarpark/conclar), enhanced with internationalization (i18n) support
+This version is a fork of [ConClár](https://github.com/lostcarpark/conclar), enhanced with internationalization (i18n) support
 and implemented for **MetropolCon 2026, the 2026 EuroCon**.
 It is hosted on GitHub at https://github.com/MacPatric/conclar.
 
