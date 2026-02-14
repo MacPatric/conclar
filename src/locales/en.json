@@ -179,6 +179,12 @@
       "browser_dark_label": "Dark mode",
       "light_mode_label": "Always light mode",
       "dark_mode_label": "Always dark mode"
+    },
+    "language": {
+      "label": "Language",
+      "browser_default_label": "Use browser default",
+      "en_label": "English",
+      "de_label": "Deutsch"
     }
   },
   "footer": {

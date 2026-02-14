@@ -5,7 +5,7 @@ import TimeZoneSelect from "react-timezone-select";
 import { useTranslation } from 'react-i18next';
 
 const Settings = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const defaultTimeZone = Temporal.Now.timeZone;
 
   const show12HourTime = useStoreState((state) => state.show12HourTime);
@@ -31,6 +31,20 @@ const Settings = () => {
 
   const darkMode = useStoreState((state) => state.darkMode);
   const setDarkMode = useStoreActions((actions) => actions.setDarkMode);
+
+  const selectedLanguage = useStoreState((state) => state.selectedLanguage);
+  const setSelectedLanguage = useStoreActions((actions) => actions.setSelectedLanguage);
+
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language);
+    if (language === 'browser') {
+      // Use browser's language detection
+      const browserLang = navigator.language.split('-')[0];
+      i18n.changeLanguage(browserLang);
+    } else {
+      i18n.changeLanguage(language);
+    }
+  };
 
   const timezoneSelect = useTimeZone ? (
     <div>
@@ -222,6 +236,47 @@ const Settings = () => {
               onChange={(e) => setDarkMode(e.target.value)}
             />
             {t('settings.dark_mode.dark_mode_label')}
+          </label>
+        </div>
+      </fieldset>
+      <fieldset className="settings-group select-language">
+        <legend className="settings-head">
+          {t('settings.language.label')}
+        </legend>
+        <div className="settings-radio">
+          <label>
+            <input
+              type="radio"
+              value="browser"
+              name="language"
+              checked={selectedLanguage === "browser"}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+            />
+            {t('settings.language.browser_default_label')}
+          </label>
+        </div>
+        <div className="settings-radio">
+          <label>
+            <input
+              type="radio"
+              value="en"
+              name="language"
+              checked={selectedLanguage === "en"}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+            />
+            {t('settings.language.en_label')}
+          </label>
+        </div>
+        <div className="settings-radio">
+          <label>
+            <input
+              type="radio"
+              value="de"
+              name="language"
+              checked={selectedLanguage === "de"}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+            />
+            {t('settings.language.de_label')}
           </label>
         </div>
       </fieldset>

@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - i18n support. Two languages available: English and German.
+- language selector and persist language preference
 - Initial unit test suite for `LocalTime.js` using Vitest.
 - Mocking infrastructure for `localStorage` and `Temporal` in tests.
 - Unit test suite for `JsonParse.js` covering comments, nested structures, and multiple entities.

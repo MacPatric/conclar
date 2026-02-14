@@ -179,6 +179,12 @@
       "browser_dark_label": "Dunkel",
       "light_mode_label": "Immer Hell",
       "dark_mode_label": "Immer Dunkel"
+    },
+    "language": {
+      "label": "Sprache",
+      "browser_default_label": "Browser-Standard verwenden",
+      "en_label": "English",
+      "de_label": "Deutsch"
     }
   },
   "footer": {
