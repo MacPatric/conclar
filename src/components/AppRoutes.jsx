@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 import configData from "../config.json";
 import ThemeSelector from "./ThemeSelector";
@@ -26,11 +27,13 @@ const AppRoutes = () => {
   const appClasses =
     "App" + (configData.DEBUG_MODE.ENABLE ? " debug-mode" : "");
   const darkMode = useStoreState((state) => state.darkMode);
-  const theApp = configData.INTERACTIVE ? (
+  const { t } = useTranslation();
+
+    const theApp = configData.INTERACTIVE ? (
     <div className={appClasses}>
       <Timer tick={configData.TIMER.TIMER_TICK_SECS} />
       <Debug />
-      <Header title={configData.APP_TITLE} showNavigation={true} />
+      <Header title={t('app_title')} showNavigation={true} />
       <Loading>
         <Routes>
           <Route path="/">

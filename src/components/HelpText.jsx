@@ -1,7 +1,9 @@
 import { useStoreState, useStoreActions } from "easy-peasy";
 import configData from "../config.json";
+import { useTranslation } from 'react-i18next';
 
 const HelpText = () => {
+  const { t } = useTranslation();
   const mySchedule = useStoreState((state) => state.getMySchedule);
   const helpTextDismissed = useStoreState((state) => state.helpTextDismissed);
   const setHelpTextDismissed = useStoreActions(
@@ -14,16 +16,15 @@ const HelpText = () => {
   if (selector in helpTextDismissed && helpTextDismissed[selector]) {
     return <></>;
   }
-  const text = configData.HELP_TEXT[selector];
   return (
     <div className="help-text">
       <button
         onClick={() => dismiss(selector)}
-        aria-label={configData.HELP_TEXT.CLOSE_ARIA_LABEL}
+        aria-label={t('help_text.close_aria_label')}
       >
-        {configData.HELP_TEXT.CLOSE_LABEL}
+        {t('help_text.close_label')}
       </button>
-      {text}
+      {selector === "SHARING" ? <p>{t('help_text.sharing')}</p> : <p>{t('help_text.welcome')}</p>}
     </div>
   );
 };

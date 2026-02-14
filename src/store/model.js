@@ -37,6 +37,7 @@ const model = {
   sortByFullName: localStorage.getItem("sort_people") === "true" ? true : false,
   onLine: window.navigator.onLine,
   darkMode: localStorage.getItem("dark_mode") ? localStorage.getItem("dark_mode") : 'browser',
+  selectedLanguage: localStorage.getItem("selected_language") || 'browser',
   // Thunks
   fetchProgram: thunk(async (actions, firstTime) => {
     actions.setData(await ProgramData.fetchData(firstTime));
@@ -108,6 +109,10 @@ const model = {
   setDarkMode: action((state, darkMode) => {
     state.darkMode = darkMode;
     localStorage.setItem("dark_mode", darkMode);
+  }),
+  setSelectedLanguage: action((state, language) => {
+    state.selectedLanguage = language;
+    localStorage.setItem("selected_language", language);
   }),
 
   // Actions for expanding program items.

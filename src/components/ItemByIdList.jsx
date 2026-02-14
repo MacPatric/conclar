@@ -2,9 +2,11 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import { useParams } from "react-router-dom";
 import configData from "../config.json";
 import ProgramList from "./ProgramList";
+import { useTranslation } from 'react-i18next';
 
 const ItemByIdList = () => {
-  const { addSelection } = useStoreActions((actions) => ({
+    const { t } = useTranslation();
+    const { addSelection } = useStoreActions((actions) => ({
     addSelection: actions.addSelection,
   }));
 
@@ -20,9 +22,9 @@ const ItemByIdList = () => {
   return (
     <div>
       <div className="page-heading">
-        <h2>{configData.PROGRAM.SHARED.TITLE}</h2>
+        <h2>{t('program.shared.title')}</h2>
       </div>
-      <div className="page-body">{configData.PROGRAM.SHARED.DESCRIPTION}</div>
+      <div className="page-body">{t('program.shared.description')}</div>
       <ProgramList program={filteredProgram} />
       <div className="buttons">
         <button
@@ -33,7 +35,7 @@ const ItemByIdList = () => {
             });
           }}
         >
-          {configData.PROGRAM.SHARED.BUTTON_LABEL}
+          {t('program.shared.button_label')}
         </button>
       </div>
     </div>

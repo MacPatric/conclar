@@ -9,9 +9,11 @@ import ResetButton from "./ResetButton";
 import ProgramList from "./ProgramList";
 import ShowPastItems from "./ShowPastItems";
 import { LocalTime } from "../utils/LocalTime";
+import { useTranslation } from 'react-i18next';
 
 const FilterableProgram = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const program = useStoreState((state) => state.program);
   const locations = useStoreState((state) => state.locations);
@@ -65,8 +67,8 @@ const FilterableProgram = () => {
   const total = filtered.length;
   const totalMessage =
     displayLimit !== "all" && displayLimit < total
-      ? `Listing ${displayLimit} of ${total} items`
-      : `Listing ${total} items`;
+      ? `${t('program.listing')} ${displayLimit} ${t('program.of')} ${total} ${t('program.items')}`
+      : `${t('program.listing')} ${total} ${t('program.items')}`;
   const display =
     configData.PROGRAM.LIMIT.SHOW && !isNaN(displayLimit)
       ? filtered.slice(0, displayLimit)
@@ -211,13 +213,13 @@ const FilterableProgram = () => {
       ));
       options.push(
         <option key="all" value="all">
-          {configData.PROGRAM.LIMIT.ALL_LABEL}
+          {t('program.limit.all_label')}
         </option>
       );
       return (
         <div className="program-limit-select">
           <label htmlFor="display_limit">
-            {configData.PROGRAM.LIMIT.LABEL}:{" "}
+            {t('program.limit.label')}:{" "}
           </label>
           <select
             id="display_limit"
@@ -247,16 +249,16 @@ const FilterableProgram = () => {
           )
         }
       >
-        {configData.PROGRAM.LIMIT.SHOW_MORE.LABEL}
+        {t('program.limit.show_more.label')}
       </button>
     ) : (
-      <span>{configData.PROGRAM.LIMIT.SHOW_MORE.NO_MORE}</span>
+      <span>{t('program.limit.show_more.no_more')}</span>
     );
 
   // create list of options for hide before time drop-down.
   const hideBeforeOptions = [
     <option value="" key="0">
-      {configData.HIDE_BEFORE.PLACEHOLDER}
+      {t('hide_before.placeholder')}
     </option>,
   ];
   for (const time of configData.HIDE_BEFORE.TIMES) {
@@ -270,10 +272,11 @@ const FilterableProgram = () => {
     <></>
   ) : (
     <div className="filter-hide-before">
-      <label htmlFor="hide-before">{configData.HIDE_BEFORE.PLACEHOLDER}</label>
+      <label htmlFor="hide-before">{t('hide_before.placeholder')}</label>
       <select
         id="hide-before"
-        placeholder={configData.HIDE_BEFORE.PLACEHOLDER}
+        placeholder={t('hide_before.placeholder')}
+        disabled={!(hideBeforeOptions.length > 1)}
         value={hideBefore}
         onChange={(e) => {
           resetDisplayLimit();
@@ -291,7 +294,7 @@ const FilterableProgram = () => {
         <div className="search-filters">
           <div className="filter-locations">
             <ReactSelect
-              placeholder="Select locations"
+              placeholder={t('program.select_locations')}
               options={locations}
               isMulti
               isSearchable={configData.LOCATIONS.SEARCHABLE}
@@ -325,7 +328,7 @@ const FilterableProgram = () => {
             <input
               id="search"
               type="search"
-              placeholder={configData.PROGRAM.SEARCH.SEARCH_LABEL}
+              placeholder={t('program.search.search_label')}
               value={search}
               onChange={(e) => {
                 resetDisplayLimit();
@@ -346,10 +349,10 @@ const FilterableProgram = () => {
             <div className="filter-total">{totalMessage}</div>
             <div className="filter-expand">
               <button disabled={allExpanded} onClick={expandAll}>
-                {configData.EXPAND.EXPAND_ALL_LABEL}
+                {t('expand.expand_all_label')}
               </button>
               <button disabled={noneExpanded} onClick={collapseAll}>
-                {configData.EXPAND.COLLAPSE_ALL_LABEL}
+                {t('expand.collapse_all_label')}
               </button>
             </div>
           </div>

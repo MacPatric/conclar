@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import configData from "../config.json";
+import { useTranslation } from 'react-i18next';
 
 const Navigation = () => {
+  const { t } = useTranslation();
   const infoLink =
-    "INFO" in configData.NAVIGATION ? (
+    configData.NAVIGATION.INFO ? (
       <li>
-        <NavLink to="/info">{configData.NAVIGATION.INFO}</NavLink>
+        <NavLink to="/info">{t('navigation.info')}</NavLink>
       </li>
     ) : (
       <></>
@@ -24,17 +26,17 @@ const Navigation = () => {
     <nav className="navigation">
       <ul>
         <li>
-          <NavLink to="/">{configData.NAVIGATION.PROGRAM}</NavLink>
+          <NavLink to="/">{t('navigation.program')}</NavLink>
         </li>
         <li>
-          <NavLink to="/people">{configData.NAVIGATION.PEOPLE}</NavLink>
+          <NavLink to="/people">{t('navigation.people')}</NavLink>
         </li>
         <li>
-          <NavLink to="/myschedule">{configData.NAVIGATION.MYSCHEDULE}</NavLink>
+          <NavLink to="/myschedule">{t('navigation.myschedule')}</NavLink>
         </li>
         {infoLink}
         <li>
-          <NavLink to="/settings">{configData.NAVIGATION.SETTINGS}</NavLink>
+          <NavLink to="/settings">{t('navigation.settings')}</NavLink>
         </li>
         {extraLinks}
       </ul>

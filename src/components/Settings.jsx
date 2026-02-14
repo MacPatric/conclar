@@ -2,8 +2,10 @@ import configData from "../config.json";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Temporal } from "@js-temporal/polyfill";
 import TimeZoneSelect from "react-timezone-select";
+import { useTranslation } from 'react-i18next';
 
 const Settings = () => {
+  const { t, i18n } = useTranslation();
   const defaultTimeZone = Temporal.Now.timeZone;
 
   const show12HourTime = useStoreState((state) => state.show12HourTime);
@@ -30,6 +32,20 @@ const Settings = () => {
   const darkMode = useStoreState((state) => state.darkMode);
   const setDarkMode = useStoreActions((actions) => actions.setDarkMode);
 
+  const selectedLanguage = useStoreState((state) => state.selectedLanguage);
+  const setSelectedLanguage = useStoreActions((actions) => actions.setSelectedLanguage);
+
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language);
+    if (language === 'browser') {
+      // Use browser's language detection
+      const browserLang = navigator.language.split('-')[0];
+      i18n.changeLanguage(browserLang);
+    } else {
+      i18n.changeLanguage(language);
+    }
+  };
+
   const timezoneSelect = useTimeZone ? (
     <div>
       <TimeZoneSelect
@@ -46,10 +62,10 @@ const Settings = () => {
 
   return (
     <div className="settings">
-      <h2>{configData.SETTINGS.TITLE.LABEL}</h2>
+      <h2>{t('settings.title.label')}</h2>
       <fieldset className="settings-group time-format">
         <legend className="settings-head">
-          {configData.SETTINGS.TIME_FORMAT.LABEL}
+          {t('settings.time_format.label')}
         </legend>
         <div className="settings-radio">
           <label>
@@ -60,7 +76,7 @@ const Settings = () => {
               checked={show12HourTime}
               onChange={(e) => setShow12HourTime(e.target.value === "12hour")}
             />
-            {configData.SETTINGS.TIME_FORMAT.T12_HOUR_LABEL}
+            {t('settings.time_format.t12_hour_label')}
           </label>
           <label>
             <input
@@ -70,13 +86,13 @@ const Settings = () => {
               checked={!show12HourTime}
               onChange={(e) => setShow12HourTime(e.target.value === "12hour")}
             />
-            {configData.SETTINGS.TIME_FORMAT.T24_HOUR_LABEL}
+            {t('settings.time_format.t24_hour_label')}
           </label>
         </div>
       </fieldset>
       <fieldset className="settings-group select-show-localtime">
         <legend className="settings-head">
-          {configData.SETTINGS.SHOW_LOCAL_TIME.LABEL}
+          {t('settings.show_local_time.label')}
         </legend>
         <div className="settings-radio">
           <label>
@@ -87,7 +103,7 @@ const Settings = () => {
               checked={showLocalTime === "never"}
               onChange={(e) => setShowLocalTime(e.target.value)}
             />
-            {configData.SETTINGS.SHOW_LOCAL_TIME.NEVER_LABEL}
+            {t('settings.show_local_time.never_label')}
           </label>
           <label>
             <input
@@ -97,7 +113,7 @@ const Settings = () => {
               checked={showLocalTime === "differs"}
               onChange={(e) => setShowLocalTime(e.target.value)}
             />
-            {configData.SETTINGS.SHOW_LOCAL_TIME.DIFFERS_LABEL}
+            {t('settings.show_local_time.differs_label')}
           </label>
           <label>
             <input
@@ -107,13 +123,13 @@ const Settings = () => {
               checked={showLocalTime === "always"}
               onChange={(e) => setShowLocalTime(e.target.value)}
             />
-            {configData.SETTINGS.SHOW_LOCAL_TIME.ALWAYS_LABEL}
+            {t('settings.show_local_time.always_label')}
           </label>
         </div>
       </fieldset>
       <fieldset className="settings-group select-show-timezone">
         <legend className="settings-head">
-          {configData.SETTINGS.SHOW_TIMEZONE.LABEL}
+          {t('settings.show_timezone.label')}
         </legend>
         <div className="settings-radio">
           <label>
@@ -124,7 +140,7 @@ const Settings = () => {
               checked={showTimeZone === "never"}
               onChange={(e) => setShowTimeZone(e.target.value)}
             />
-            {configData.SETTINGS.SHOW_TIMEZONE.NEVER_LABEL}
+            {t('settings.show_timezone.never_label')}
           </label>
           <label>
             <input
@@ -134,7 +150,7 @@ const Settings = () => {
               checked={showTimeZone === "if_local"}
               onChange={(e) => setShowTimeZone(e.target.value)}
             />
-            {configData.SETTINGS.SHOW_TIMEZONE.IF_LOCAL_LABEL}
+            {t('settings.show_timezone.if_local_label')}
           </label>
           <label>
             <input
@@ -144,13 +160,13 @@ const Settings = () => {
               checked={showTimeZone === "always"}
               onChange={(e) => setShowTimeZone(e.target.value)}
             />
-            {configData.SETTINGS.SHOW_TIMEZONE.ALWAYS_LABEL}
+            {t('settings.show_timezone.always_label')}
           </label>
         </div>
       </fieldset>
       <fieldset className="settings-group select-timezone">
         <legend className="settings-head">
-          {configData.SETTINGS.SELECT_TIMEZONE.LABEL}
+          {t('settings.select_timezone.label')}
         </legend>
         <div className="settings-radio">
           <label>
@@ -161,7 +177,7 @@ const Settings = () => {
               checked={!useTimeZone}
               onChange={(e) => setUseTimeZone(e.target.value === "select")}
             />
-            {configData.SETTINGS.SELECT_TIMEZONE.BROWSER_DEFAULT_LABEL}{" "}
+            {t('settings.select_timezone.browser_default_label')}{" "}
             {defaultTimeZone}
           </label>
           <label>
@@ -172,14 +188,14 @@ const Settings = () => {
               checked={useTimeZone}
               onChange={(e) => setUseTimeZone(e.target.value === "select")}
             />
-            {configData.SETTINGS.SELECT_TIMEZONE.SELECT_LABEL}
+            {t('settings.select_timezone.select_label')}
           </label>
         </div>
         {timezoneSelect}
       </fieldset>
       <fieldset className="settings-group select-dark-mode">
         <legend className="settings-head">
-          {configData.SETTINGS.DARK_MODE.LABEL}
+          {t('settings.dark_mode.label')}
         </legend>
         <div className="settings-radio">
           <label>
@@ -190,11 +206,12 @@ const Settings = () => {
               checked={darkMode === "browser"}
               onChange={(e) => setDarkMode(e.target.value)}
             />
-            {configData.SETTINGS.DARK_MODE.BROWSER_DEFAULT_LABEL}{" "}
+            {t('settings.dark_mode.browser_default_label')}{" "}
             {window.matchMedia &&
             window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? configData.SETTINGS.DARK_MODE.BROWSER_DARK_LABEL
-              : configData.SETTINGS.DARK_MODE.BROWSER_LIGHT_LABEL}
+              ? t('settings.dark_mode.browser_dark_label')
+              : t('settings.dark_mode.browser_light_label')
+            }
           </label>
         </div>
         <div className="settings-radio">
@@ -206,7 +223,7 @@ const Settings = () => {
               checked={darkMode === "light"}
               onChange={(e) => setDarkMode(e.target.value)}
             />
-            {configData.SETTINGS.DARK_MODE.LIGHT_MODE_LABEL}
+            {t('settings.dark_mode.light_mode_label')}
           </label>
         </div>
         <div className="settings-radio">
@@ -218,7 +235,48 @@ const Settings = () => {
               checked={darkMode === "dark"}
               onChange={(e) => setDarkMode(e.target.value)}
             />
-            {configData.SETTINGS.DARK_MODE.DARK_MODE_LABEL}
+            {t('settings.dark_mode.dark_mode_label')}
+          </label>
+        </div>
+      </fieldset>
+      <fieldset className="settings-group select-language">
+        <legend className="settings-head">
+          {t('settings.language.label')}
+        </legend>
+        <div className="settings-radio">
+          <label>
+            <input
+              type="radio"
+              value="browser"
+              name="language"
+              checked={selectedLanguage === "browser"}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+            />
+            {t('settings.language.browser_default_label')}
+          </label>
+        </div>
+        <div className="settings-radio">
+          <label>
+            <input
+              type="radio"
+              value="en"
+              name="language"
+              checked={selectedLanguage === "en"}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+            />
+            {t('settings.language.en_label')}
+          </label>
+        </div>
+        <div className="settings-radio">
+          <label>
+            <input
+              type="radio"
+              value="de"
+              name="language"
+              checked={selectedLanguage === "de"}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+            />
+            {t('settings.language.de_label')}
           </label>
         </div>
       </fieldset>

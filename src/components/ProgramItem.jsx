@@ -14,8 +14,10 @@ import PropTypes from "prop-types";
 import { Temporal } from "@js-temporal/polyfill";
 import { useState, useEffect } from "react";
 import { LocalTime } from "../utils/LocalTime";
+import { useTranslation } from 'react-i18next';
 
 const ProgramItem = ({ item, forceExpanded, now }) => {
+  const { t } = useTranslation();
   const showLocalTime = useStoreState((state) => state.showLocalTime);
   const show12HourTime = useStoreState((state) => state.show12HourTime);
   const timeZoneIsShown = useStoreState((state) => state.timeZoneIsShown);
@@ -73,7 +75,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
       <div className="item-permalink">
         <Link
           to={"/id/" + item.id}
-          title={configData.PERMALINK.PERMALINK_TITLE}
+          title={t('permalink.title')}
         >
           <HiLink />
         </Link>
@@ -135,7 +137,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
             key="map"
             name="item-links-map"
             link={location.MAP_URL}
-            text={configData.LOCATIONS.LABEL}
+            text={t('locations.label')}
             enabled={true}
           />
         );
@@ -146,7 +148,7 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   const duration =
     configData.DURATION.SHOW_DURATION && item.mins ? (
       <div className="item-duration">
-        {configData.DURATION.DURATION_LABEL.replace("@mins", item.mins)}
+        {t('duration.duration_label').replace("@mins", item.mins)}
       </div>
     ) : (
       ""
@@ -171,12 +173,12 @@ const ProgramItem = ({ item, forceExpanded, now }) => {
   console.log(localTime);
   let startTime;
   if (localTime) {
-    startTime = configData.START_TIME.START_TIME_WITH_LOCAL_LABEL.replace(
+    startTime = t('start_time.start_time_with_local_label').replace(
       "@local_time",
       localTime
     ).replace("@con_time", conTime);
   } else {
-    startTime = configData.START_TIME.START_TIME_LABEL.replace(
+    startTime = t('start_time.start_time_label').replace(
       "@con_time",
       conTime
     );
