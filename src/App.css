@@ -31,10 +31,10 @@
   --navigation-button-current-fg: #fff;
   --navigation-button-hover-bg: #1e293b;
   --navigation-button-hover-fg: #fff;
-  --help-text-bg: green;
-  --help-text-fg: #fff;
+  --help-text-bg: #edaa1c;
+  --help-text-fg: #000;
   --checkbox-switch-bg: white;
-  --checkbox-selected-bg: green;
+  --checkbox-selected-bg: #edaa1c;
   --checkbox-unselected-bg: red;
   --filter-bg: var(--main-bg);
   --filter-fg: var(--main-fg);
@@ -86,8 +86,8 @@
   --shadow-02: rgba(0, 0, 0, 0.2);
   --shadow-03: rgba(0, 0, 0, 0.3);
   --shadow-gray: rgba(166, 175, 195, 0.25);
-  --debug-online-bg: green;
-  --debug-online-fg: white;
+  --debug-online-bg: #edaa1c;
+  --debug-online-fg: #000;
   --debug-offline-bg: red;
   --debug-offline-fg: white;
 }
