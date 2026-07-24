@@ -82,9 +82,6 @@ vi.mock('react-icons/hi', () => ({
   HiLink: () => <span data-testid="link-icon">Link</span>,
 }));
 
-// Suppress console.log for tests
-global.console.log = vi.fn();
-
 // Mock config data
 vi.mock('../config.json', () => ({
   default: {
