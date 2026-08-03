@@ -346,14 +346,14 @@ describe('ProgramData', () => {
       ];
 
       const people = [
-        { id: 'p1', name: 'Alice', sortname: 'Alice' },
-        { id: 'p2', name: 'Zoe', sortname: 'Zoe' },
+        { id: 'p1', name: 'Zack', sortname: 'Alice' },
+        { id: 'p2', name: 'Abigail', sortname: 'Zoe' },
       ];
 
       ProgramData.addProgramParticipantDetails(program, people);
 
-      expect(program[0].people[0].name).toBe('Alice');
-      expect(program[0].people[1].name).toBe('Zoe');
+      expect(program[0].people[0].sortname).toBe('Alice');
+      expect(program[0].people[1].sortname).toBe('Zoe');
     });
   });
 
