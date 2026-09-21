@@ -204,7 +204,12 @@ describe('Settings', () => {
     // Override state: start with dark mode set to 'light' so we can change to 'browser'
     useStoreState.mockImplementation((selector) => {
       const state = {
-        darkMode: 'light',  // Changed from 'browser' to 'light'
+        show12HourTime: false,
+        showLocalTime: 'never',
+        showTimeZone: 'never',
+        useTimeZone: false,
+        selectedTimeZone: 'UTC',
+        darkMode: 'light',
       };
       return selector(state);
     });
@@ -212,7 +217,6 @@ describe('Settings', () => {
     render(<Settings />);
 
     const radioBrowser = screen.getByLabelText('settings.dark_mode.browser_default_label settings.dark_mode.browser_light_label');
-    // radioBrowser is checked by default. How to uncheck it before clicking?
     fireEvent.click(radioBrowser);
     expect(mockSetDarkMode).toHaveBeenCalledWith('browser');
   });
