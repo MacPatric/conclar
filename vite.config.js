@@ -109,6 +109,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.js'],
     css: true,
-    cleanMocks: true
+    clearMocks: true
   }
 });
