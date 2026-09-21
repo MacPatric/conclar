@@ -2,12 +2,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-  useStoreActions: vi.fn(),
-}));
-
 // Mock Temporal
 vi.mock('@js-temporal/polyfill', () => ({
   Temporal: {

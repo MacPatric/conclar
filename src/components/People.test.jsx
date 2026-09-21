@@ -3,12 +3,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import { MemoryRouter } from 'react-router-dom';
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-  useStoreActions: vi.fn(),
-}));
-
 // Mock config.json to ensure consistent test environment
 vi.mock('../config.json', () => ({
   default: {

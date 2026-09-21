@@ -4,12 +4,6 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 import { Temporal } from '@js-temporal/polyfill';
 import { BrowserRouter } from 'react-router-dom';
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-  useStoreActions: vi.fn(),
-}));
-
 // Mock react-router-dom
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');

@@ -13,11 +13,6 @@ vi.mock('react-router-dom', async () => {
   };
 });
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-}));
-
 // Mock DOMPurify
 vi.mock('dompurify', () => ({
   default: {

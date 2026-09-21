@@ -55,12 +55,6 @@ vi.mock('../config.json', () => ({
 
 import FilterableProgram from './FilterableProgram';
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-  useStoreActions: vi.fn(),
-}));
-
 // Mock Temporal
 vi.mock('@js-temporal/polyfill', () => ({
   Temporal: {

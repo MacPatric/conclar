@@ -3,11 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { useStoreState } from 'easy-peasy';
 import { BrowserRouter } from 'react-router-dom';
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-}));
-
 // Mock react-router-dom
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');

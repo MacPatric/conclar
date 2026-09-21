@@ -29,12 +29,6 @@ vi.mock('./ProgramList', () => ({
   ),
 }));
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-  useStoreActions: vi.fn(),
-}));
-
 // Mock react-router-dom
 vi.mock('react-router-dom', () => ({
   useParams: vi.fn(),

@@ -13,12 +13,6 @@ vi.mock('../config.json', () => ({
   },
 }));
 
-// Mock easy-peasy
-vi.mock('easy-peasy', () => ({
-  useStoreState: vi.fn(),
-  useStoreActions: vi.fn(),
-}));
-
 import HelpText from './HelpText';
 
 describe('HelpText', () => {
