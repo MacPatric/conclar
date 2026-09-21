@@ -27,7 +27,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:watch": "vitest watch",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
     "validate:config-example": "node scripts/validateConfigExample.mjs",
     "docs:generate": "node scripts/generateConfigDocs.mjs",
     "docs:check": "node scripts/generateConfigDocs.mjs --check"
