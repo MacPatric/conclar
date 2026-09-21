@@ -40,13 +40,13 @@ describe('JsonParse', () => {
       expect(result).toEqual([{ key: 'value' }]);
     });
 
-    it('should handle JSON with line comments', () => {
+    it('should handle JSON with block comments', () => {
       const input = '{/* comment */ "key": "value"}';
       const result = JsonParse.extractJson(input);
       expect(result).toEqual([{ key: 'value' }]);
     });
 
-    it('should handle JSON with block comments', () => {
+    it('should handle JSON with line comments', () => {
       const input = '{// single line comment\n"key": "value"}';
       const result = JsonParse.extractJson(input);
       expect(result).toEqual([{ key: 'value' }]);
