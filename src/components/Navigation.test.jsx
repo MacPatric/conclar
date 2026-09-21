@@ -153,7 +153,7 @@ describe('Navigation', () => {
     );
 
     const programLink = screen.getByText('Programme');
-    expect(programLink.className).toContain('');
+    expect(programLink).toHaveClass('active');  // only NavLinks's isActive callback can make it active
   });
 
   it('uses regular anchor tags for external links', () => {
