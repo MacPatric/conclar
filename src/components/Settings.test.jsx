@@ -123,12 +123,12 @@ describe('Settings', () => {
   it('renders all settings sections', () => {
     render(<Settings />);
 
-    expect(screen.getByText('settings.title.label')).toBeDefined();
-    expect(screen.getByText('settings.time_format.label')).toBeDefined();
-    expect(screen.getByText('settings.show_local_time.label')).toBeDefined();
-    expect(screen.getByText('settings.show_timezone.label')).toBeDefined();
-    expect(screen.getByText('settings.select_timezone.label')).toBeDefined();
-    expect(screen.getByText('settings.dark_mode.label')).toBeDefined();
+    expect(screen.getByText('settings.title.label')).toBeInTheDocument();
+    expect(screen.getByText('settings.time_format.label')).toBeInTheDocument();
+    expect(screen.getByText('settings.show_local_time.label')).toBeInTheDocument();
+    expect(screen.getByText('settings.show_timezone.label')).toBeInTheDocument();
+    expect(screen.getByText('settings.select_timezone.label')).toBeInTheDocument();
+    expect(screen.getByText('settings.dark_mode.label')).toBeInTheDocument();
   });
 
   it('handles 12/24 hour time format change', () => {
@@ -184,7 +184,7 @@ describe('Settings', () => {
     render(<Settings />);
     
     const select = screen.getByTestId('timezone-select');
-    expect(select).toBeDefined();
+    expect(select).toBeInTheDocument();
     
     fireEvent.change(select, { target: { value: 'Europe/Berlin' } });
     expect(mockSetSelectedTimeZone).toHaveBeenCalledWith('Europe/Berlin');

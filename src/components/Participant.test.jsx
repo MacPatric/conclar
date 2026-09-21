@@ -49,7 +49,7 @@ describe('Participant', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('John Doe')).toBeDefined();
+    expect(screen.getByText('John Doe')).toBeInTheDocument();
   });
 
   it('renders as list item', () => {
@@ -64,7 +64,7 @@ describe('Participant', () => {
       </BrowserRouter>
     );
 
-    expect(container.querySelector('li.participant')).toBeDefined();
+    expect(container.querySelector('li.participant')).toBeInTheDocument();
   });
 
   it('renders link to person page when interactive', () => {
@@ -80,7 +80,7 @@ describe('Participant', () => {
     );
 
     const link = screen.getByText('John Doe').closest('a');
-    expect(link).toBeDefined();
+    expect(link).toBeInTheDocument();
     expect(link.getAttribute('href')).toBe('/people/p1');
   });
 
@@ -114,7 +114,7 @@ describe('Participant', () => {
       </BrowserRouter>
     );
 
-    expect(container.querySelector('.participant-default-image')).toBeDefined();
+    expect(container.querySelector('.participant-default-image')).toBeInTheDocument();
   });
 
   it('does not have participant-default-image class for custom image', () => {
@@ -145,7 +145,7 @@ describe('Participant', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('people.moderators.moderator_label')).toBeDefined();
+    expect(screen.getByText('people.moderators.moderator_label')).toBeInTheDocument();
   });
 
   it('does not display moderator label when moderator prop is false', () => {
@@ -176,7 +176,7 @@ describe('Participant', () => {
     );
 
     const moderatorSpan = container.querySelector('.moderator');
-    expect(moderatorSpan).toBeDefined();
+    expect(moderatorSpan).toBeInTheDocument();
     expect(moderatorSpan.textContent).toBe('people.moderators.moderator_label');
   });
 
@@ -274,7 +274,7 @@ describe('Participant', () => {
       </BrowserRouter>
     );
 
-    expect(container.querySelector('.participant-image')).toBeDefined();
+    expect(container.querySelector('.participant-image')).toBeInTheDocument();
   });
 
   it('renders both name and moderator label together', () => {
@@ -305,7 +305,7 @@ describe('Participant', () => {
 
     const img = container.querySelector('img');
     expect(img).not.toBeNull();
-    expect(screen.getByText('Jane Smith')).toBeDefined();
-    expect(screen.getByText('people.moderators.moderator_label')).toBeDefined();
+    expect(screen.getByText('Jane Smith')).toBeInTheDocument();
+    expect(screen.getByText('people.moderators.moderator_label')).toBeInTheDocument();
   });
 });

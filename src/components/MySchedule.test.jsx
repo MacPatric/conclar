@@ -89,8 +89,8 @@ describe('MySchedule', () => {
 
     render(<MySchedule />);
 
-    expect(screen.getByText('MySchedule title')).toBeDefined();
-    expect(screen.getByText('MySchedule empty')).toBeDefined();
+    expect(screen.getByText('MySchedule title')).toBeInTheDocument();
+    expect(screen.getByText('MySchedule empty')).toBeInTheDocument();
     expect(screen.queryByTestId('program-list')).toBeNull();
   });
 
@@ -108,11 +108,11 @@ describe('MySchedule', () => {
 
     render(<MySchedule />);
 
-    expect(screen.getByText('MySchedule title')).toBeDefined();
-    expect(screen.getByText('MySchedule intro')).toBeDefined();
-    expect(screen.getByTestId('program-list')).toBeDefined();
-    expect(screen.getByTestId('show-past-items')).toBeDefined();
-    expect(screen.getByTestId('share-link')).toBeDefined();
+    expect(screen.getByText('MySchedule title')).toBeInTheDocument();
+    expect(screen.getByText('MySchedule intro')).toBeInTheDocument();
+    expect(screen.getByTestId('program-list')).toBeInTheDocument();
+    expect(screen.getByTestId('show-past-items')).toBeInTheDocument();
+    expect(screen.getByTestId('share-link')).toBeInTheDocument();
   });
 
   it('disables expand button when all selected items are expanded', () => {

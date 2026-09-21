@@ -72,7 +72,7 @@ describe('TagSelect', () => {
       />
     );
 
-    expect(screen.getByTestId('react-select')).toBeDefined();
+    expect(screen.getByTestId('react-select')).toBeInTheDocument();
   });
 
   it('passes placeholder from tagData', () => {
@@ -263,7 +263,7 @@ describe('TagSelect', () => {
     );
 
     const selectDiv = container.querySelector('.filter-container');
-    expect(selectDiv).toBeDefined();
+    expect(selectDiv).toBeInTheDocument();
   });
 
   it('applies correct classNamePrefix', () => {

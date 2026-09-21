@@ -15,7 +15,7 @@ describe('Switch', () => {
     render(<Switch {...defaultProps} />);
     
     const button = screen.getByRole('checkbox', { name: 'Test Label' });
-    expect(button).toBeDefined();
+    expect(button).toBeInTheDocument();
     expect(button.getAttribute('aria-checked')).toBe('false');
   });
 

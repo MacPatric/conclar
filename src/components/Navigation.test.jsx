@@ -44,7 +44,7 @@ describe('Navigation', () => {
     );
 
     const nav = container.querySelector('nav.navigation');
-    expect(nav).toBeDefined();
+    expect(nav).toBeInTheDocument();
   });
 
   it('renders navigation list', () => {
@@ -55,7 +55,7 @@ describe('Navigation', () => {
     );
 
     const ul = container.querySelector('nav.navigation ul');
-    expect(ul).toBeDefined();
+    expect(ul).toBeInTheDocument();
   });
 
   it('renders Programme link', () => {
@@ -66,7 +66,7 @@ describe('Navigation', () => {
     );
 
     const link = screen.getByText('Programme');
-    expect(link).toBeDefined();
+    expect(link).toBeInTheDocument();
     expect(link.getAttribute('href')).toBe('/');
   });
 
@@ -78,7 +78,7 @@ describe('Navigation', () => {
     );
 
     const link = screen.getByText('People');
-    expect(link).toBeDefined();
+    expect(link).toBeInTheDocument();
     expect(link.getAttribute('href')).toBe('/people');
   });
 
@@ -90,7 +90,7 @@ describe('Navigation', () => {
     );
 
     const link = screen.getByText('My Schedule');
-    expect(link).toBeDefined();
+    expect(link).toBeInTheDocument();
     expect(link.getAttribute('href')).toBe('/myschedule');
   });
 
@@ -102,7 +102,7 @@ describe('Navigation', () => {
     );
 
     const link = screen.getByText('Information');
-    expect(link).toBeDefined();
+    expect(link).toBeInTheDocument();
     expect(link.getAttribute('href')).toBe('/info');
   });
 
@@ -114,7 +114,7 @@ describe('Navigation', () => {
     );
 
     const link = screen.getByText('Settings');
-    expect(link).toBeDefined();
+    expect(link).toBeInTheDocument();
     expect(link.getAttribute('href')).toBe('/settings');
   });
 
@@ -126,11 +126,11 @@ describe('Navigation', () => {
     );
 
     const link1 = screen.getByText('MetropolCon Home');
-    expect(link1).toBeDefined();
+    expect(link1).toBeInTheDocument();
     expect(link1.getAttribute('href')).toBe('https://metropolcon.eu');
 
     const link2 = screen.getByText('ConClár GitHub');
-    expect(link2).toBeDefined();
+    expect(link2).toBeInTheDocument();
     expect(link2.getAttribute('href')).toBe('https://github.com/lostcarpark/conclar');
   });
 

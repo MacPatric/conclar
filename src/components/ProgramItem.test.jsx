@@ -190,9 +190,9 @@ describe('ProgramItem', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Test Program Item')).toBeDefined();
-    expect(screen.getByTestId('location')).toBeDefined();
-    expect(screen.getByText(/Starts at/)).toBeDefined();
+    expect(screen.getByText('Test Program Item')).toBeInTheDocument();
+    expect(screen.getByTestId('location')).toBeInTheDocument();
+    expect(screen.getByText(/Starts at/)).toBeInTheDocument();
   });
 
   it('renders duration when available', () => {
@@ -202,7 +202,7 @@ describe('ProgramItem', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('60 minutes')).toBeDefined();
+    expect(screen.getByText('60 minutes')).toBeInTheDocument();
   });
 
   it('renders multiple locations as array', () => {
@@ -231,7 +231,7 @@ describe('ProgramItem', () => {
     );
 
     const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).toBeDefined();
+    expect(checkbox).toBeInTheDocument();
     expect(checkbox.checked).toBe(false);
   });
 
@@ -363,9 +363,9 @@ describe('ProgramItem', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByTestId('participant-person1')).toBeDefined();
-    expect(screen.getByTestId('participant-person2')).toBeDefined();
-    expect(screen.getByText(/John Doe.*\(Moderator\)/)).toBeDefined();
+    expect(screen.getByTestId('participant-person1')).toBeInTheDocument();
+    expect(screen.getByTestId('participant-person2')).toBeInTheDocument();
+    expect(screen.getByText(/John Doe.*\(Moderator\)/)).toBeInTheDocument();
   });
 
   it('renders description with sanitized HTML', () => {
@@ -376,7 +376,7 @@ describe('ProgramItem', () => {
     );
 
     const description = screen.getByText('Test description');
-    expect(description).toBeDefined();
+    expect(description).toBeInTheDocument();
   });
 
   it('renders permalink when enabled in config', () => {
@@ -387,7 +387,7 @@ describe('ProgramItem', () => {
     );
 
     const permalink = screen.getByTitle('Permalink');
-    expect(permalink).toBeDefined();
+    expect(permalink).toBeInTheDocument();
     expect(permalink.getAttribute('href')).toBe('/id/item1');
   });
 
@@ -399,7 +399,7 @@ describe('ProgramItem', () => {
     );
 
     const links = screen.getByTestId('item-links-signup');
-    expect(links).toBeDefined();
+    expect(links).toBeInTheDocument();
   });
 
   it('shows local time when showLocalTime is "always"', () => {
@@ -420,7 +420,7 @@ describe('ProgramItem', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText(/11:00 local/)).toBeDefined();
+    expect(screen.getByText(/11:00 local/)).toBeInTheDocument();
   });
 
   it('shows chevron icon when interactive and not forced expanded', () => {
@@ -430,7 +430,7 @@ describe('ProgramItem', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByTestId('chevron-icon')).toBeDefined();
+    expect(screen.getByTestId('chevron-icon')).toBeInTheDocument();
   });
 
   it('does not show chevron when forceExpanded is true', () => {
@@ -473,7 +473,7 @@ describe('ProgramItem', () => {
     );
 
     const details = screen.getByRole('region');
-    expect(details).toBeDefined();
+    expect(details).toBeInTheDocument();
   });
 
   it('handles item without people', () => {
@@ -514,6 +514,6 @@ describe('ProgramItem', () => {
     );
 
     const itemDiv = container.querySelector('#item_item1');
-    expect(itemDiv).toBeDefined();
+    expect(itemDiv).toBeInTheDocument();
   });
 });

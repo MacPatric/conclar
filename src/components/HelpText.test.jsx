@@ -41,7 +41,7 @@ describe('HelpText', () => {
 
     render(<HelpText />);
 
-    expect(screen.getByText('Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.')).toBeDefined();
+    expect(screen.getByText('Welcome to ConClár. You can use the checkboxes next to programme items to make a personal schedule. You can view this on the My Schedule page, and share to other devices.')).toBeInTheDocument();
   });
 
   it('renders SHARING text when schedule is not empty and not dismissed', () => {
@@ -55,7 +55,7 @@ describe('HelpText', () => {
 
     render(<HelpText />);
 
-    expect(screen.getByText('You may share your personal schedule to other devices using the QR codes on the My Schedule page.')).toBeDefined();
+    expect(screen.getByText('You may share your personal schedule to other devices using the QR codes on the My Schedule page.')).toBeInTheDocument();
   });
 
   it('does not render when WELCOME is dismissed', () => {

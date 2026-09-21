@@ -225,11 +225,11 @@ describe('FilterableProgram', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByTestId('location-select')).toBeDefined();
-    expect(screen.getByTestId('tag-selectors')).toBeDefined();
-    expect(screen.getByTestId('reset-button')).toBeDefined();
-    expect(screen.getByTestId('program-list')).toBeDefined();
-    expect(screen.getByTestId('show-past-items')).toBeDefined();
+    expect(screen.getByTestId('location-select')).toBeInTheDocument();
+    expect(screen.getByTestId('tag-selectors')).toBeInTheDocument();
+    expect(screen.getByTestId('reset-button')).toBeInTheDocument();
+    expect(screen.getByTestId('program-list')).toBeInTheDocument();
+    expect(screen.getByTestId('show-past-items')).toBeInTheDocument();
   });
 
   it('displays correct item count', () => {
@@ -239,7 +239,7 @@ describe('FilterableProgram', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getAllByText('Listing 2 items')[0]).toBeDefined();
+    expect(screen.getAllByText('Listing 2 items')[0]).toBeInTheDocument();
   });
 
   it('handles search input change', () => {
@@ -421,7 +421,7 @@ describe('FilterableProgram', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Show more items')).toBeDefined();
+    expect(screen.getByText('Show more items')).toBeInTheDocument();
   });
 
   it('shows "no more" message when all items are displayed', () => {
@@ -431,6 +431,6 @@ describe('FilterableProgram', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('No more items to display')).toBeDefined();
+    expect(screen.getByText('No more items to display')).toBeInTheDocument();
   });
 });

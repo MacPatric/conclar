@@ -75,7 +75,7 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByText('Shared Program Items')).toBeDefined();
+    expect(screen.getByText('Shared Program Items')).toBeInTheDocument();
   });
 
   it('renders page description', () => {
@@ -83,7 +83,7 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByText('The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.')).toBeDefined();
+    expect(screen.getByText('The following programme items have been shared with you. To add to your schedule, click the button at the bottom of the page.')).toBeInTheDocument();
   });
 
   it('renders add all button', () => {
@@ -91,7 +91,7 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByText('Add all to My Schedule')).toBeDefined();
+    expect(screen.getByText('Add all to My Schedule')).toBeInTheDocument();
   });
 
   it('filters program to show only specified items', () => {
@@ -99,8 +99,8 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByTestId('program-item-1')).toBeDefined();
-    expect(screen.getByTestId('program-item-3')).toBeDefined();
+    expect(screen.getByTestId('program-item-1')).toBeInTheDocument();
+    expect(screen.getByTestId('program-item-3')).toBeInTheDocument();
     expect(screen.queryByTestId('program-item-2')).toBeNull();
     expect(screen.queryByTestId('program-item-4')).toBeNull();
   });
@@ -110,7 +110,7 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByTestId('program-item-2')).toBeDefined();
+    expect(screen.getByTestId('program-item-2')).toBeInTheDocument();
     expect(screen.queryByTestId('program-item-1')).toBeNull();
     expect(screen.queryByTestId('program-item-3')).toBeNull();
   });
@@ -120,9 +120,9 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByTestId('program-item-1')).toBeDefined();
-    expect(screen.getByTestId('program-item-2')).toBeDefined();
-    expect(screen.getByTestId('program-item-4')).toBeDefined();
+    expect(screen.getByTestId('program-item-1')).toBeInTheDocument();
+    expect(screen.getByTestId('program-item-2')).toBeInTheDocument();
+    expect(screen.getByTestId('program-item-4')).toBeInTheDocument();
     expect(screen.queryByTestId('program-item-3')).toBeNull();
   });
 
@@ -173,7 +173,7 @@ describe('ItemByIdList', () => {
     render(<ItemByIdList />);
 
     const programList = screen.getByTestId('program-list');
-    expect(programList).toBeDefined();
+    expect(programList).toBeInTheDocument();
   });
 
   it('has correct button class name', () => {
@@ -182,7 +182,7 @@ describe('ItemByIdList', () => {
     const { container } = render(<ItemByIdList />);
 
     const button = container.querySelector('button.button-add-all');
-    expect(button).toBeDefined();
+    expect(button).toBeInTheDocument();
   });
 
   it('has correct structure with page-heading and page-body', () => {
@@ -190,9 +190,9 @@ describe('ItemByIdList', () => {
 
     const { container } = render(<ItemByIdList />);
 
-    expect(container.querySelector('.page-heading')).toBeDefined();
-    expect(container.querySelector('.page-body')).toBeDefined();
-    expect(container.querySelector('.buttons')).toBeDefined();
+    expect(container.querySelector('.page-heading')).toBeInTheDocument();
+    expect(container.querySelector('.page-body')).toBeInTheDocument();
+    expect(container.querySelector('.buttons')).toBeInTheDocument();
   });
 
   it('filters correctly with all item ids', () => {
@@ -200,10 +200,10 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByTestId('program-item-1')).toBeDefined();
-    expect(screen.getByTestId('program-item-2')).toBeDefined();
-    expect(screen.getByTestId('program-item-3')).toBeDefined();
-    expect(screen.getByTestId('program-item-4')).toBeDefined();
+    expect(screen.getByTestId('program-item-1')).toBeInTheDocument();
+    expect(screen.getByTestId('program-item-2')).toBeInTheDocument();
+    expect(screen.getByTestId('program-item-3')).toBeInTheDocument();
+    expect(screen.getByTestId('program-item-4')).toBeInTheDocument();
   });
 
   it('handles non-existent item ids gracefully', () => {
@@ -213,7 +213,7 @@ describe('ItemByIdList', () => {
 
     expect(screen.queryByTestId('program-item-99')).toBeNull();
     expect(screen.queryByTestId('program-item-100')).toBeNull();
-    expect(screen.getByTestId('program-list')).toBeDefined();
+    expect(screen.getByTestId('program-list')).toBeInTheDocument();
   });
 
   it('handles mix of valid and invalid item ids', () => {
@@ -221,8 +221,8 @@ describe('ItemByIdList', () => {
 
     render(<ItemByIdList />);
 
-    expect(screen.getByTestId('program-item-1')).toBeDefined();
-    expect(screen.getByTestId('program-item-3')).toBeDefined();
+    expect(screen.getByTestId('program-item-1')).toBeInTheDocument();
+    expect(screen.getByTestId('program-item-3')).toBeInTheDocument();
     expect(screen.queryByTestId('program-item-99')).toBeNull();
   });
 });

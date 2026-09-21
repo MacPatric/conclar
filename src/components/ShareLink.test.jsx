@@ -94,7 +94,7 @@ describe('ShareLink', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('program.my_schedule.share.label')).toBeDefined();
+    expect(screen.getByText('program.my_schedule.share.label')).toBeInTheDocument();
   });
 
   it('renders description text', () => {
@@ -111,7 +111,7 @@ describe('ShareLink', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('program.my_schedule.share.description')).toBeDefined();
+    expect(screen.getByText('program.my_schedule.share.description')).toBeInTheDocument();
   });
 
   it('renders single link for few items', () => {
@@ -131,7 +131,7 @@ describe('ShareLink', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('program.my_schedule.share.link_label')).toBeDefined();
+    expect(screen.getByText('program.my_schedule.share.link_label')).toBeInTheDocument();
   });
 
   it('generates correct link URL with tilde separator', () => {
@@ -170,7 +170,7 @@ describe('ShareLink', () => {
     );
 
     const qrCode = screen.getByTestId('qr-code');
-    expect(qrCode).toBeDefined();
+    expect(qrCode).toBeInTheDocument();
     expect(qrCode.getAttribute('data-value')).toBe('http://localhost:3000/ids/1');
   });
 
@@ -217,7 +217,7 @@ describe('ShareLink', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('program.my_schedule.share.multiple_description')).toBeDefined();
+    expect(screen.getByText('program.my_schedule.share.multiple_description')).toBeInTheDocument();
   });
 
   it('does not display multiple description with single link', () => {
@@ -278,11 +278,11 @@ describe('ShareLink', () => {
       </BrowserRouter>
     );
 
-    expect(container.querySelector('.share-group')).toBeDefined();
-    expect(container.querySelector('.share-head')).toBeDefined();
-    expect(container.querySelector('.share-body')).toBeDefined();
-    expect(container.querySelector('.share-link')).toBeDefined();
-    expect(container.querySelector('.share-qr-code')).toBeDefined();
+    expect(container.querySelector('.share-group')).toBeInTheDocument();
+    expect(container.querySelector('.share-head')).toBeInTheDocument();
+    expect(container.querySelector('.share-panel')).toBeInTheDocument();
+    expect(container.querySelector('.share-link')).toBeInTheDocument();
+    expect(container.querySelector('.share-qr-code')).toBeInTheDocument();
   });
 
   it('generates multiple QR codes for multiple links', () => {

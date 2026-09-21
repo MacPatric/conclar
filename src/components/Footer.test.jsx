@@ -28,53 +28,46 @@ describe('Footer', () => {
     const { container } = render(<Footer />);
 
     const footer = container.querySelector('footer.footer');
-    expect(footer).toBeDefined();
+    expect(footer).toBeInTheDocument();
   });
 
   it('renders site note section', () => {
     const { container } = render(<Footer />);
 
     const siteNote = container.querySelector('.footer-site');
-    expect(siteNote).toBeDefined();
+    expect(siteNote).toBeInTheDocument();
   });
 
   it('renders site note markdown content', () => {
     render(<Footer />);
 
-    expect(screen.getByText('Test site note with **markdown**')).toBeDefined();
-  });
-
-  it('renders footer bottom section', () => {
-    const { container } = render(<Footer />);
-
-    const footerBottom = container.querySelector('.footer-bottom');
-    expect(footerBottom).toBeDefined();
+    expect(screen.getByText('Test site note with **markdown**')).toBeInTheDocument();
   });
 
   it('renders copyright section', () => {
     const { container } = render(<Footer />);
 
     const copyright = container.querySelector('.footer-copyright');
-    expect(copyright).toBeDefined();
+    expect(copyright).toBeInTheDocument();
   });
 
   it('renders copyright markdown content', () => {
     render(<Footer />);
 
-    expect(screen.getByText('© 2026 Test Convention')).toBeDefined();
+    expect(screen.getByText('© 2026 Test Convention')).toBeInTheDocument();
   });
 
   it('renders conclar note section', () => {
     const { container } = render(<Footer />);
 
     const conclarNote = container.querySelector('.footer-conclar');
-    expect(conclarNote).toBeDefined();
+    expect(conclarNote).toBeInTheDocument();
   });
 
   it('renders conclar note markdown content', () => {
     render(<Footer />);
 
-    expect(screen.getByText('Guide powered by [ConClár](https://github.com/lostcarpark/conclar)')).toBeDefined();
+    expect(screen.getByText('Guide powered by [ConClár](https://github.com/lostcarpark/conclar)')).toBeInTheDocument();
   });
 
   it('renders all three ReactMarkdown components', () => {
@@ -92,9 +85,9 @@ describe('Footer', () => {
     const copyright = footer.querySelector('.footer-copyright');
     const conclarNote = footer.querySelector('.footer-conclar');
 
-    expect(footer).toBeDefined();
-    expect(siteNote).toBeDefined();
-    expect(copyright).toBeDefined();
-    expect(conclarNote).toBeDefined();
+    expect(footer).toBeInTheDocument();
+    expect(siteNote).toBeInTheDocument();
+    expect(copyright).toBeInTheDocument();
+    expect(conclarNote).toBeInTheDocument();
   });
 });

@@ -78,8 +78,8 @@ describe('TagSelectors', () => {
       />
     );
 
-    expect(screen.getByTestId('tag-select-type')).toBeDefined();
-    expect(screen.getByTestId('tag-select-track')).toBeDefined();
+    expect(screen.getByTestId('tag-select-type')).toBeInTheDocument();
+    expect(screen.getByTestId('tag-select-track')).toBeInTheDocument();
   });
 
   it('does not render TagSelect for empty tag arrays', () => {
@@ -98,7 +98,7 @@ describe('TagSelectors', () => {
       />
     );
 
-    expect(screen.getByTestId('tag-select-type')).toBeDefined();
+    expect(screen.getByTestId('tag-select-type')).toBeInTheDocument();
     expect(screen.queryByTestId('tag-select-track')).toBeNull();
   });
 
@@ -164,7 +164,7 @@ describe('TagSelectors', () => {
       />
     );
 
-    expect(screen.getByTestId('tag-select-days')).toBeDefined();
+    expect(screen.getByTestId('tag-select-days')).toBeInTheDocument();
   });
 
   it('does not use DAY_TAG when GENERATE is false', () => {
@@ -236,8 +236,8 @@ describe('TagSelectors', () => {
     const typeDiv = container.querySelector('.filter-tags-type');
     const trackDiv = container.querySelector('.filter-tags-track');
 
-    expect(typeDiv).toBeDefined();
-    expect(trackDiv).toBeDefined();
+    expect(typeDiv).toBeInTheDocument();
+    expect(trackDiv).toBeInTheDocument();
   });
 
   it('passes all required props to TagSelect', () => {
